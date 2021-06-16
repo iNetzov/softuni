@@ -14,7 +14,7 @@ function solve(inputArr){
     for (const key in products) {
         let cheapestTown1 = Object.entries(products[key]).sort((a,b)=>a[1]-b[1]);
         let cheapestTown = cheapestTown1[0];
-        result.push(`${key} ->${cheapestTown[1]}(${cheapestTown[0]})`);
+        result.push(`${key} -> ${cheapestTown[1]} (${cheapestTown[0]})`);
     }
     return result.join('\n');
     //console.log(products)
