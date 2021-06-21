@@ -7,5 +7,5 @@ function addItem() {
     option.value = valueBox.value;
     menu.appendChild(option);
     textBox.value = '';
-    valueBox.value = '';
+    valueBox.value = '';  
 }
