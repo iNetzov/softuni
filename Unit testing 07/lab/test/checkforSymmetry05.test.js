@@ -22,12 +22,6 @@ describe('testing input',()=>{
     it('should fail if not array provided ',()=>{
         let expectedResult = false;
         assert.equal(sum(null),expectedResult);
-        
-    
-    });
-    it('test for emplty array',()=>{
-        let expectedResult = true;
-        assert.equal(sum([]),expectedResult);
     });
     it('test str1 and 1 ',()=>{
         let expectedResult = false;
