@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> 
+    <title>Movies</title>
+</head>
+
+<body>
+    <h1>Best Movies</h1>
+    <section class="registerSection">
+        <h3>Register</h3>
+    <form id="register-form">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+        <input type="submit" value="register">
+    </form>
+    <h3>Login</h3>
+    <form id="login-form">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+        <input type="submit" value="login">
+    </form>
+    </section>
+    <section class="add-movie-section hide">
+        <form action="add-movie-form">
+            <label for="movie-title">Title</label>
+            <input type="text" id="movie-title" name="title">
+            <label for="movie-description">Description</label>
+            <textarea name="description" id="movie-description"></textarea>
+            <input type="submit" value="Add Movie">
+        </form>
+    </section>
+    
+    
+    <script>
+        let baseUrl = 'http://localhost:3030';
+        let registerForm = document.getElementById('register-form')
+        let registerSection = document.querySelector('.registerSection');
+        let addMovieSection = document.querySelector('.add-movie-section');
+        let loginForm = document.querySelector('#login-form')
+
+        //register Fetch
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let data = new FormData(e.currentTarget);
+           // console.log(data.get('email'))
+           // console.log(data.get('password'))
+           
+            fetch(`${baseUrl}/users/register`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email: data.get('email'),
+                    password: data.get('password')
+                })
+            })
+                .then(res =>  res.json() )
+                .then(data => {
+                    saveToken(data.accessToken);
+                    console.log(data)
+                    registerSection.classList.add('hide');
+                    addMovieSection.classList.remove('hide');
+                })
+                .catch(err => { console.log(err) });
+        });
+        //register fetch
+
+        //login fetch
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let data = new FormData(e.currentTarget);
+           // console.log(data.get('email'))
+           // console.log(data.get('password'))
+           
+            fetch(`${baseUrl}/users/login`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email: data.get('email'),
+                    password: data.get('password')
+                })
+            })
+                .then(res =>  res.json() )
+                .then(data => {
+                    saveToken(data.accessToken);
+                    console.log(data)
+                    registerSection.classList.add('hide');
+                    addMovieSection.classList.remove('hide');
+                })
+                .catch(err => { console.log(err) });
+        });
+        //login fetch
+        //movie form
+        
+
+
+        function saveToken(token){
+            localStorage.setItem('auth_token',token);
+
+        }
+    </script>
+</body>
+
+</html>
