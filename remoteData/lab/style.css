@@ -1,3 +1,6 @@
 .hide {
     display: none;
 }
+.movie-list{
+    display: flex;
+}
