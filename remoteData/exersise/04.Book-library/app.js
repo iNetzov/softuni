@@ -7,6 +7,7 @@ function solve() {
     let booksLine = document.querySelector('#book-lines');
     let formInput = document.querySelector('#input-form');
     let dataForm = new FormData(formInput);
+    let formTemplate = document.querySelector('#input-form h3');
     let submitBtn = document.querySelector('#submit');
     // console.log(booksLine);
     inputForm.addEventListener('submit', sendSubmitForm);
@@ -26,6 +27,8 @@ function solve() {
         e.preventDefault();
         if (submitBtn.classList.length === 1) {
             submitBtn.classList.remove('edit')
+            submitBtn.textContent = 'Submit'
+            formTemplate.textContent = `Form`   
             let title = titleField.value;
             let author = authorField.value;
             //console.log(title);
@@ -111,6 +114,9 @@ function solve() {
             submitBtn.classList.add('edit')
             submitBtn.name = (`${elementTr.id}`);
           //  console.log(submitBtn);
+          submitBtn.textContent = 'Save';
+          formTemplate.textContent = `EditForm`
+
 
 
         }
