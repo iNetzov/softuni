@@ -23,23 +23,25 @@
             <li class="nav-item">
                 <a class="nav-link active" data-link="home" aria-current="page" href="#">Home</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item guest">
                 <a class="nav-link" data-link="login" href="#">Login</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-link="my-movies" href="#">My movies</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item guest">
                 <a class="nav-link" data-link="register" href="#">register</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-link="list" href="#">List</a>
+                <a class="nav-link" data-link="movies" href="#">movies</a>
             </li>
         </ul>
     </section>
     
     
     <section class="register hidden">
+        <form id="register-form">
+
         <div class="mb-3 row">
             <h3>register Form</h3>
             <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
@@ -56,9 +58,25 @@
         <div class="col-auto">
             <button type="submit" class="btn btn-primary mb-3">login</button>
         </div>
+    </form>
+
     </section>
 
-    
+    <section class="movies hidden">
+        <h2>All movies</h2>
+
+        <li class="card hidden" id="movie-card-template" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Show details</a>
+            </div>
+        </li>
+        <ul class="movie-list"></ul>
+
+    </section>
+
+
     <section class="login hidden">
         <div class="mb-3 row">
             <h3>Login Form</h3>
