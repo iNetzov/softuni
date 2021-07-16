@@ -1,11 +1,13 @@
 import loginPage from './loginPage.js';
 import registerPage from './registerPage.js';
+import moviesPage from './moviesPage.js'; 
 
 
 let headerElement = document.querySelector('.header .nav');
 let pages = {
     register: registerPage,
     login: loginPage,
+    movies: moviesPage,
 };
 
 headerElement.addEventListener('click', (e) => {
