@@ -1,10 +1,21 @@
 body {
-    background-color: aqua;
+    background-color: #f8f9fa;
 }
-.site-wrapper{
+
+.site-wrapper {
     width: 1200px;
     margin: auto;
 }
-.login-container{
-    width: 600px;
+
+.login-container {
+    width: 400px;
+}
+
+.movie-list {
+    display: flex;
+    list-style: none;
+}
+
+.movie-list-item {
+    margin-right: 20px;
 }
