@@ -8,23 +8,27 @@ const guestUserNavigation = () => html`
 </div>
 `;
 
-const loggedUserNavigation = () => html`
+const loggedUserNavigation = (username) => html`
 <div id="profile">
-    <a>Welcome username</a>
-    <a href="#">My Listings</a>
-    <a href="#">Create Listing</a>
-    <a href="#">Logout</a>
+    <a>Welcome ${username}</a>
+    <a href="/profile">My Listings</a>
+    <a href="/create">Create Listing</a>
+    <a href="/logout">Logout</a>
 </div>
 `;
 
-const navigationTemplate = () => html`
+const navigationTemplate = (user) => html`
 <nav>
-    <a class="active" href="/home">Home</a>
-    <a href="#">All Listings</a>
+    <a class="active" href="/">Home</a>
+    <a href="/listing">All Listings</a>
     <a href="#">By Year</a>
-    ${guestUserNavigation()}
+    ${user 
+        ?loggedUserNavigation(user.username)
+        :guestUserNavigation(user)
+    }
 </nav>`
 
-export const renderNavigation = (ctx) => {
-    return navigationTemplate();
+//destroctor from ctx user 
+export const renderNavigation = ({user}) => {
+    return navigationTemplate(user);
 }

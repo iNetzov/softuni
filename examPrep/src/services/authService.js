@@ -6,20 +6,41 @@ export const login = (username, password) => {
         .then(user => {
             saveUser(user);
             return user;
-        });
+        })
+};
 
-    function saveUser(data) {
-        localStorage.setItem('user', JSON.stringify(data));
-    }
-    function getUser() {
+export const register = (username, password) => {
+    return request.post(api.register,{username, password})
+        .then(user => {
+            saveUser(user)
+            return user;
+        });
+}
+
+function saveUser(data) {
+    console.log(data);
+    localStorage.setItem('user', JSON.stringify(data));
+}
+
+export function getUser() {
+
+    try {
         let user = localStorage.getItem('user');
         if (user) {
             return JSON.parse(user);
-        } else {
-
-            return {};
-
         }
+    } catch (error) {
+    return undefined;
+        
     }
+    
+}
 
-};
+export const logout = () => {
+   return request.get(api.logout).finally(destroySession);
+}
+
+function destroySession(){
+    localStorage.removeItem('user');
+}
+

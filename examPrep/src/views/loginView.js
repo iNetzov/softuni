@@ -33,7 +33,7 @@ export function renderLogin(ctx) {
         let password = formData.get('password');
         authService.login(username, password)
             .then(() => {
-                ctx.page.redirect('/');
+                ctx.page.redirect('/listing');
             });
     }
     ctx.render(loginTemplate(onSubmit));
