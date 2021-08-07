@@ -1,8 +1,15 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
 import * as carService from '../services/carService.js';
 
+const privateButtons = (carId) => html`
+<div class="listings-buttons">
+            <a href="/listing/${carId}/edit" class="button-list">Edit</a>
+            <a href="/listing/${carId}/delete" class="button-list">Delete</a>
+        </div>
+`;
 
-const detailsCarTemplate = (car) => html`
+
+const detailsCarTemplate = (car,showButtons) => html`
 <!-- Listing Details Page -->
 <section id="listing-details">
     <h1>Details</h1>
@@ -18,17 +25,16 @@ const detailsCarTemplate = (car) => html`
 
         <p class="description-para">${car.description}</p>
 
-        <div class="listings-buttons">
-            <a href="/listing/${car._id}/edit" class="button-list">Edit</a>
-            <a href="/listing/${car._id}/delete" class="button-list">Delete</a>
-        </div>
+        ${showButtons && privateButtons(car._id)
+        
+        }
     </div>
 </section>
 `;
 
 export const renderCarDetails= (ctx) => {
-
     carService.getOne(ctx.params.carId).then(car=>{
-        ctx.render(detailsCarTemplate(car));
+        let showButtons = Boolean(ctx.user) && car._ownerId == ctx.user._id;
+        ctx.render(detailsCarTemplate(car,showButtons));
     });
 }

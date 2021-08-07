@@ -1,5 +1,6 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
 import * as carService from '../services/carService.js';
+import { checkCarForm } from "./helpers.js";
 
 const createCarTemplate = (onSubmit) => html`
 
@@ -41,10 +42,12 @@ export const renderCreateCar = (ctx) => {
     const onSubmit = (e) => {
         e.preventDefault();
         let car = Object.fromEntries(new FormData(e.currentTarget));
-        if(Object.values(car).some(x => !x)){
-            alert('you must fill all the fields')
+
+        if(!checkCarForm(car)){
+            alert('you must filled all the fields')
             return;
-        };
+        }
+        
         car.year = Number(car.year);
         car.price = Number(car.price);
         //console.log(car);

@@ -1,5 +1,6 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
 import * as carService from '../services/carService.js';
+import { checkCarForm } from "./helpers.js";
 
 const editCarTemplate = (car,onSubmit) => html`
 <!-- Edit Listing Page -->
@@ -37,14 +38,28 @@ const editCarTemplate = (car,onSubmit) => html`
 `
 
 export const renderEditCar = (ctx) => {
+    let carId = ctx.params.carId;
     const onSubmit = (e) =>{
         e.preventDefault();
         let car = Object.fromEntries(new FormData(e.currentTarget));
-        console.log(car);
+
+        if(checkCarForm(car)){
+            alert('you must filled all the fields')
+            return;
+        }
+        car.year = Number(car.year);
+        car.price = Number(car.price);
+
+
+        carService.update(carId,car).then(()=>ctx.page.redirect(`/listing/${carId}`))
     } 
 
-    carService.getOne(ctx.params.carId)
+    carService.getOne(carId)
         .then(car =>{
+            if(car._ownerId != ctx.user._id){
+                ctx.page.redirect(`/listing/`)
+                return
+            }
             ctx.render(editCarTemplate(car,onSubmit));
         })
 }
