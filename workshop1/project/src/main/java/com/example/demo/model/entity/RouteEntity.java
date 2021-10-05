@@ -19,7 +19,7 @@ public class RouteEntity extends BaseEntity {
     public RouteEntity() {
     }
 
-    @Column(name = "gpxCoordinate",columnDefinition = "LONGTEXT")
+    @Column(name = "gpx_coordinates",columnDefinition = "LONGTEXT")
     public String getGpxCoordinate() {
         return gpxCoordinate;
     }
