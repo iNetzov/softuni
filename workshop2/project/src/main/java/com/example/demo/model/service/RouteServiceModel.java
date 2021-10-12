@@ -1,13 +1,14 @@
-package com.example.demo.model.entity;
+package com.example.demo.model.service;
 
+import com.example.demo.model.entity.CategoryEntry;
+import com.example.demo.model.entity.PictureEntity;
+import com.example.demo.model.entity.UserEntity;
 import com.example.demo.model.entity.enums.LevelEnum;
 
-import javax.persistence.*;
 import java.util.Set;
 
-@Entity
-@Table(name = "routes")
-public class RouteEntity extends BaseEntity {
+public class RouteServiceModel {
+    private Long id;
     private String gpxCoordinate;
     private LevelEnum level;
     private String name;
@@ -16,10 +17,18 @@ public class RouteEntity extends BaseEntity {
     private String description;
     private Set<CategoryEntry> categories;
     private Set<PictureEntity> pictures;
-    public RouteEntity() {
+
+    public RouteServiceModel() {
     }
 
-    @Column(name = "gpx_coordinates",columnDefinition = "LONGTEXT")
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getGpxCoordinate() {
         return gpxCoordinate;
     }
@@ -28,7 +37,6 @@ public class RouteEntity extends BaseEntity {
         this.gpxCoordinate = gpxCoordinate;
     }
 
-    @Enumerated(EnumType.STRING)
     public LevelEnum getLevel() {
         return level;
     }
@@ -37,7 +45,6 @@ public class RouteEntity extends BaseEntity {
         this.level = level;
     }
 
-    @Column(unique = true,nullable = false)
     public String getName() {
         return name;
     }
@@ -46,7 +53,6 @@ public class RouteEntity extends BaseEntity {
         this.name = name;
     }
 
-    @ManyToOne
     public UserEntity getAuthor() {
         return author;
     }
@@ -55,7 +61,6 @@ public class RouteEntity extends BaseEntity {
         this.author = author;
     }
 
-    @Column
     public String getVideoUrl() {
         return videoUrl;
     }
@@ -64,7 +69,6 @@ public class RouteEntity extends BaseEntity {
         this.videoUrl = videoUrl;
     }
 
-    @Column(columnDefinition = "TEXT")
     public String getDescription() {
         return description;
     }
@@ -73,7 +77,6 @@ public class RouteEntity extends BaseEntity {
         this.description = description;
     }
 
-    @ManyToMany(fetch = FetchType.EAGER)
     public Set<CategoryEntry> getCategories() {
         return categories;
     }
@@ -82,7 +85,6 @@ public class RouteEntity extends BaseEntity {
         this.categories = categories;
     }
 
-    @OneToMany(mappedBy = "route",fetch = FetchType.EAGER)
     public Set<PictureEntity> getPictures() {
         return pictures;
     }
