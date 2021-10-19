@@ -35,4 +35,9 @@ public class CategoryServiceImpl implements CategoryService {
             categoryRepository.save(category);
         });
     }
+
+    @Override
+    public Category findByCategoryNameEnum(CategoryNameEnum categoryNameEnum) {
+        return  categoryRepository.findByName(categoryNameEnum).orElse(null);
+    }
 }
