@@ -1,27 +1,30 @@
-package com.example.demo.model.entity;
+package com.example.demo.model.service;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.validation.constraints.*;
+import com.example.demo.model.entity.Category;
+import com.example.demo.model.entity.enums.CategoryNameEnum;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "products")
-public class Product extends BaseEntity{
+public class ProductServiceModel {
+   private Long id;
     private String description;
     private String name;
     private LocalDateTime neededBefore;
     private BigDecimal price;
-    private Category category;
+    private CategoryNameEnum category;
 
-    public Product() {
+    public ProductServiceModel() {
     }
 
-    @Column(name = "description")
-    @Size(min = 5)
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -30,7 +33,6 @@ public class Product extends BaseEntity{
         this.description = description;
     }
 
-    @Column(name = "name",unique = true,nullable = false)
     public String getName() {
         return name;
     }
@@ -39,8 +41,6 @@ public class Product extends BaseEntity{
         this.name = name;
     }
 
-    @Column(name ="needed_before")
-    @Future
     public LocalDateTime getNeededBefore() {
         return neededBefore;
     }
@@ -49,8 +49,6 @@ public class Product extends BaseEntity{
         this.neededBefore = neededBefore;
     }
 
-    @Positive
-    @Column(name = "price")
     public BigDecimal getPrice() {
         return price;
     }
@@ -59,13 +57,11 @@ public class Product extends BaseEntity{
         this.price = price;
     }
 
-    @ManyToOne
-    @NotNull
-    public Category getCategory() {
+    public CategoryNameEnum getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(CategoryNameEnum category) {
         this.category = category;
     }
 }
