@@ -17,7 +17,7 @@ public class UserRegisterBindingModel {
 
 
     @NotNull
-    @Size(min = 5,max = 20)
+    @Size(min = 5,max = 20,message = "this is me")
     public String getUsername() {
         return username;
     }
