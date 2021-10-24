@@ -35,10 +35,11 @@
             <div class="text-white label-holder d-flex justify-content-center">
                 <label for="gender" class="h4 mb-2">Gender</label>
             </div>
-            <select  th:field="*{gender}" class="browser-default custom-select" id="gender" name="gender" >
+            <select  th:field="*{gender}" th:errorclass="is-invalid" class="browser-default custom-select" id="gender" name="gender" >
                 <option value="">Select gender</option>
                 <option th:each="c: ${T(com.example.demo.models.entity.enums.GenderEnum).values()}" th:value="${c}" th:text="${c}" value="MALE">Male</option>
             </select>
+            <small class="invalid-feedback bg-danger text-light text-danger">Select Someting</small>
         </div>
         <div class="form-group">
             <div class="text-white label-holder d-flex justify-content-center">
