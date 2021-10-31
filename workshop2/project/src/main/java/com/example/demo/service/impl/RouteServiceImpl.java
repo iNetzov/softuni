@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 import com.example.demo.model.entity.RouteEntity;
 import com.example.demo.model.service.RouteServiceModel;
+import com.example.demo.model.view.RouteDetailsViewModel;
 import com.example.demo.model.view.RouteViewModel;
 import com.example.demo.repository.RouteRepository;
 import com.example.demo.service.CategoryService;
@@ -60,5 +61,13 @@ public class RouteServiceImpl implements RouteService {
 
 
        routeRepository.save(routeEntity);
+    }
+
+    @Override
+    public RouteDetailsViewModel findRouteById(Long id) {
+        return routeRepository
+                .findById(id)
+                .map(routeEntity -> modelMapper.map(routeEntity,RouteDetailsViewModel.class))
+                .orElse(null);
     }
 }
