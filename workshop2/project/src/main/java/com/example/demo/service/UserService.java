@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.model.entity.UserEntity;
 import com.example.demo.model.service.UserServiceModel;
 
 public interface UserService {
@@ -14,4 +15,6 @@ public interface UserService {
     UserServiceModel findById(Long id);
 
     boolean isNameExists(String username);
+
+    UserEntity findCurrentLoginUserEntity();
 }

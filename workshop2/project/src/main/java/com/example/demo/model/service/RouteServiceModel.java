@@ -3,6 +3,7 @@ package com.example.demo.model.service;
 import com.example.demo.model.entity.CategoryEntry;
 import com.example.demo.model.entity.PictureEntity;
 import com.example.demo.model.entity.UserEntity;
+import com.example.demo.model.entity.enums.CategoryNameEnum;
 import com.example.demo.model.entity.enums.LevelEnum;
 
 import java.util.Set;
@@ -15,7 +16,7 @@ public class RouteServiceModel {
     private UserEntity author;
     private String videoUrl;
     private String description;
-    private Set<CategoryEntry> categories;
+    private Set<CategoryNameEnum> categories;
     private Set<PictureEntity> pictures;
 
     public RouteServiceModel() {
@@ -77,11 +78,11 @@ public class RouteServiceModel {
         this.description = description;
     }
 
-    public Set<CategoryEntry> getCategories() {
+    public Set<CategoryNameEnum> getCategories() {
         return categories;
     }
 
-    public void setCategories(Set<CategoryEntry> categories) {
+    public void setCategories(Set<CategoryNameEnum> categories) {
         this.categories = categories;
     }
 
