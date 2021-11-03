@@ -19,6 +19,7 @@ public class BooksController {
     }
 
     //localhost:8080/books
+    //this will connect on localhost:8080/books and will return Json file
     @GetMapping
     public ResponseEntity<List<BookDTO>> getAllBooks(){
        List<BookDTO> allBooks =  booksService.getAllBooks();
