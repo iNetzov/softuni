@@ -49,7 +49,7 @@ public class UserLoginController {
     redirectAttributes.addFlashAttribute("username",username)
             .addFlashAttribute("error",true);
 
-    return "redirect:login";
+    return "redirect:/users/login";
   }
 
 

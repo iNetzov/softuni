@@ -1,5 +1,6 @@
 package bg.softuni.mobilelele.config;
 
+import bg.softuni.mobilelele.model.entity.enums.UserRoleEnum;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Configuration;
@@ -35,6 +36,8 @@ public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapt
                 requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                 // Adding access to Pages with global access HOME,REGISTER, LOGIN
                 .antMatchers("/","/users/register","/users/login").permitAll()
+                //we give page that only ADMIN Can assess
+                .antMatchers("/statistics").hasRole(UserRoleEnum.ADMIN.name())
                 //next we forbit all other pages for un-logged users
                 .antMatchers("/**").authenticated()
                 .and().
