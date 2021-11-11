@@ -4,7 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
@@ -30,6 +32,7 @@ public class UserEntity extends BaseEntity {
     }
 
     @Column(name = "username",nullable = false,unique = true)
+    @Size(min = 3,max = 20)
     @NotNull
     public String getUsername() {
         return username;
@@ -40,6 +43,7 @@ public class UserEntity extends BaseEntity {
     }
 
     @Column(name = "password",nullable = false)
+    @Size(min = 5)
     @NotNull
     public String getPassword() {
         return password;
@@ -50,6 +54,7 @@ public class UserEntity extends BaseEntity {
     }
 
     @Column(name = "full_name",nullable = false)
+    @Size(min = 10,max = 50 )
     @NotNull
     public String getFullName() {
         return fullName;
@@ -60,6 +65,8 @@ public class UserEntity extends BaseEntity {
     }
 
     @Column(name = "email",nullable = false,unique = true)
+    @Email
+    @Size(min = 5)
     @NotNull
     public String getEmail() {
         return email;
@@ -69,7 +76,7 @@ public class UserEntity extends BaseEntity {
         this.email = email;
     }
 
-    @Column(name = "picture_url")
+    @Column(name = "picture_url",columnDefinition = "TEXT",nullable = false)
     @NotNull
     public String getPicUrl() {
         return picUrl;
