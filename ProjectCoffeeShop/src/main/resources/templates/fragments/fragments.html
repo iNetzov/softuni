@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec='http://www.thymeleaf.org/extras/spring-security'>
 
 <head th:fragment="head">
     <meta charset="UTF-8"/>
@@ -13,44 +14,46 @@
 
 <header th:fragment="navigation">
     <nav class="main-nav">
-        <ul>
-            <li>
-                <a href="/">Home</a>
-            </li>
-            <li>
-                <a href="/users/login">Login</a>
-            </li>
-            <li>
-                <a href="/users/register">Register</a>
-            </li>
-            <li>
-                <a href="/about">About</a>
-            </li>
-            <li>
-                <a href="/products/add">Add new Product</a>
-            </li>
-            <li>
-                <a href="/users/profile">Profile</a>
-            </li>
-            <li>
-                <a href="/users/admin">Admin_Panel</a>
-            </li>
-            <li>
-                <a href="/users/logout">Logout</a>
-            </li>
-            <li>
-                <a href="/products/all">Products</a>
-            </li>
-            <li>
-                <a href="/stores/all">Stores</a>
-            </li>
-            <li>
-                <a href="/orders/add">Order</a>
-            </li>
-            <li>
-                <a href="/orders/view">View Orders</a>
-            </li>
-        </ul>
+         <th:block sec:authorize="hasRole('ADMIN')">
+           <h1>Thisss is admin section</h1>
+         </th:block>
+        <th:block sec:authorize="hasRole('USER')">
+            <h1>Thisss is USER section</h1>
+        </th:block>
+        <th:block sec:authorize="hasRole('MODERATOR')">
+            <h1>Thisss is MODERATOR section</h1>
+        </th:block>
+
+<!--            navigation for not logged users-->
+            <th:block sec:authorize="isAnonymous()" >
+                <ul>
+                <li><a href="/">Home</a></li>
+
+                <li><a href="/users/register">Register</a></li>
+
+                <li><a href="/users/login">Login</a></li>
+
+                <li><a href="/about">About us</a></li>
+                <li><a href="/products/all">Products</a></li>
+                </ul>
+            </th:block>
+<!--                        navigation for NOT logged users-->
+<!--                        navigation for logged users-->
+            <th:block sec:authorize="isAuthenticated()" >
+                <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/users/profile">Profile</a></li>
+                <li><a href="/stores/all">Stores</a></li>
+                <li><a href="/products/all">Products</a></li>
+                <li><a href="/orders/all">Order</a></li>
+                <li><form class="main-nav" th:action="@{/users/logout}" th:method="POST">
+                    <input class="btn  btn-link nav-link" type="submit" value="Logout">
+                </form></li>
+                </ul>
+            </th:block>
+
+
+
     </nav>
 </header>
 

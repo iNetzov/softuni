@@ -82,4 +82,9 @@ public class UserController {
         return "login";
     }
 
+    @GetMapping("/adminPanel")
+    public String adminPanel(){
+        return "test";
+    }
+
 }

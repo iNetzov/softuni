@@ -1,22 +1,22 @@
 package com.example.demo.config.inIt;
 
 import com.example.demo.service.RoleService;
+import com.example.demo.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 
 @Configuration
 public class DataBaseInIt implements CommandLineRunner {
+    private final UserService userService;
 
-    private final RoleService roleService;
+    public DataBaseInIt(UserService userService) {
 
-    public DataBaseInIt(RoleService roleService) {
-        this.roleService = roleService;
+        this.userService = userService;
     }
 
     @Override
     public void run(String... args) throws Exception {
 
-        roleService.initializeRoles();
+        userService.initializeUsers();
     }
 }

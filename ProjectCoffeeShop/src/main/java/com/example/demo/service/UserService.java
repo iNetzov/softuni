@@ -11,4 +11,6 @@ public interface UserService {
     UserEntity findByUsername(String username);
 
     UserEntity findByEmail(String email);
+
+    void initializeUsers();
 }
