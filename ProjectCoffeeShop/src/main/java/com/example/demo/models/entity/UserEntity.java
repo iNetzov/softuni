@@ -1,9 +1,9 @@
 package com.example.demo.models.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import com.example.demo.models.entity.enums.RoleEntityNameEnum;
+import org.springframework.data.repository.cdi.Eager;
+
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -22,7 +22,7 @@ public class UserEntity extends BaseEntity {
     public UserEntity() {
     }
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     public Set<RoleEntity> getRoles() {
         return roles;
     }

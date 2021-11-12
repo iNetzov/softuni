@@ -1,0 +1,105 @@
+/* CSS Variables */
+:root {
+    --primary: #ddd;
+    --dark: #333;
+    --light: #fff;
+    --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+    --lightGray: rgba(241, 241, 241, 0.8);
+}
+
+html {
+    box-sizing: content-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+
+}
+.text-coffee{
+    color: #ad8b6f;
+}
+
+body {
+
+    background-image: url("/images/test2.jpg");
+    backdrop-filter: blur(8px);
+    padding: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 30px 50px;
+    line-height: 1.4;
+    object-fit: cover;
+}
+
+.btn {
+    background: #ad8b6f;
+    color:  white;
+    padding: 0.6rem 1.3rem;
+    text-decoration: none;
+    border: 0;
+}
+.btn:hover{
+    background: var(--primary);
+    color: black;
+}
+
+.main-btn {
+    text-decoration: none;
+    color: #0b2e13;
+}
+
+.main-btn:hover {
+
+    text-decoration: none;
+
+}
+
+
+img {
+    max-width: 100%;
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 15px;
+}
+
+/* Navigation */
+.main-nav ul {
+    display: grid;
+    grid-gap: 25px;
+    padding: 12px;
+    list-style: none;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.main-nav a {
+    background: var(--primary);
+    display: block;
+    border-radius: 35px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: serif;
+    padding: 1rem;
+    text-align: center;
+    color: #ad8b6f;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    box-shadow: var(--shadow);
+}
+
+.main-nav a:hover {
+    background: #ad8b6f;
+    color: #222222;
+}
+
+/* Footer */
+footer {
+
+    margin-top: 2rem;
+    border-radius: 35px;
+    background: #ad8b6f;
+    color: var(--light);
+    font-family: serif;
+    text-align: center;
+    padding: 1rem;
+}
