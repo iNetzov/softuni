@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/fragments::head"></head>
+<header th:replace="fragments/fragments::navigation"></header>
+<body>
+<div class="container text-light position-static">
+    <h1 class="display-3 text-center"><b>ADD PRODUCT</b></h1>
+</div>
+
+<div class="container bg-blur rounded p-5 mt-5 w-75">
+    <h4 class="text-light text-center" >Fill the form to create a product</h4>
+    <hr class="bg-light">
+
+    <form th:action="@{/products/add}" th:method="POST"
+          class=" text-center text-light">
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label">Product-name</label>
+            <div class="col-sm-10">
+                <input type="text" minlength="5" maxlength="35" class="form-control" id="name"
+                       aria-describedby="nameHelpInline" placeholder="Product-name">
+                <small id="usernameHelpInline" class="invalid-feedback text-light rounded">
+                    Product name must be between 5 and 35 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="price" class="col-sm-2 col-form-label">Product-price</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="price"
+                       aria-describedby="priceHelpInline" placeholder="Product-price">
+                <small id="priceHelpInline" class="invalid-feedback bg-danger text-light rounded">
+                     The product-price must be positive number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="description" class="col-sm-2 col-form-label">Product-description</label>
+            <div class="col-sm-10">
+                <input type="text"  minlength="15"  class="form-control" id="description"
+                       aria-describedby="descriptionHelpInline" placeholder="Product-description">
+                <small id="descriptionHelpInline" class="invalid-feedback bg-danger text-light rounded">
+                    Description must be minimum 15 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="pictureUrl" class="col-sm-2 col-form-label">Picture Url</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="pictureUrl"
+                       aria-describedby="pictureUrlHelpInline" placeholder="Picture Url">
+                <small id="pictureUrlHelpInline" class="invalid-feedback bg-danger text-light rounded">
+                    Picture-Url must not be empty.
+                </small>
+            </div>
+        </div>
+        <div>
+            <div>
+                <div class="form-group row">
+                    <label for="category" class="col-sm-2 col-form-label">Product-category</label>
+                    <select id="category" class=" custom-select col-sm-10 ">
+                        <option value="" selected>Select a category</option>
+                        <option value="1" text="ADVANCED">Coffee</option>
+                        <option value="1" text="ADVANCED">Food</option>
+                        <option value="1" text="ADVANCED">Other</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+        <p></p>
+        <button type="submit" class="btn btn-info w-50">Create New Product</button>
+    </form>
+    <hr class="bg-light">
+</div>
+
+
+<footer th:replace="fragments/fragments::footer"></footer>
+</body>
+</html>

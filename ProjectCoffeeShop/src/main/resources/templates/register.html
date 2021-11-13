@@ -5,13 +5,14 @@
 <body>
 <header th:replace="fragments/fragments::navigation"></header>
 
-<div class="container text-light position-fixed">
-<h1 class="display-3 text-center"><b>REGISTER FORM</b></h1>
+<div class="container text-light position-static">
+    <h1 class="display-3 text-center"><b>REGISTER FORM</b></h1>
 </div>
 
 <div class="container bg-blur rounded p-5 mt-5 w-75">
+    <h4 class="text-light text-center" >Fill the form to create a registration</h4>
     <hr class="bg-light">
-    <
+
     <form th:action="@{/users/register}" th:method="POST" th:object="${userRegisterBindingModel}"
           class=" text-center text-light">
         <h3 class="mt-5 text-center">
@@ -75,6 +76,7 @@
                 </small>
             </div>
         </div>
+        <p></p>
         <button type="submit" class="btn btn-info w-50">Register</button>
     </form>
     <hr class="bg-light">
