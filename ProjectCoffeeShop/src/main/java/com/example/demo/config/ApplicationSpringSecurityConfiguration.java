@@ -42,7 +42,7 @@ public class ApplicationSpringSecurityConfiguration extends WebSecurityConfigure
                 .antMatchers("/","/users/register","/users/login","/about","products/all").permitAll()
                 .antMatchers("/panel/admin").hasRole(RoleEntityNameEnum.ADMIN.name())
                 .antMatchers("/panel/moderator").hasRole(RoleEntityNameEnum.MODERATOR.name())
-                //.antMatchers("/**").authenticated()
+                .antMatchers("/**").authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/users/login")

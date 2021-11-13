@@ -13,13 +13,13 @@
 
 <div class="container bg-blur rounded p-5 mt-5 w-75">
     <hr class="bg-light">
-
 <form th:action="@{/users/login}" th:method="POST"
       class=" text-center text-light">
+    <strong class="bg-danger text-center text-light" th:if="${errorLogIn}">Wrong username or password</strong>
     <div class="form-group row">
         <label for="username" class="col-sm-2 col-form-label">Username</label>
         <div class="col-sm-10">
-            <input type="text"  name="username" class="form-control" id="username"
+            <input type="text" th:value="${username}" name="username" class="form-control" id="username"
                    aria-describedby="usernameHelpInline" placeholder="Username">
         </div>
     </div>

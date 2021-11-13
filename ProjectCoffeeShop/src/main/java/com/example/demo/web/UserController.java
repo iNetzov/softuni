@@ -5,6 +5,7 @@ import com.example.demo.models.entity.enums.RoleEntityNameEnum;
 import com.example.demo.models.service.UserServiceModel;
 import com.example.demo.service.UserService;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -29,64 +30,78 @@ public class UserController {
 
 
     @GetMapping("/register")
-    public String registerUser(Model model){
-        if (!model.containsAttribute("usernameExist")){
-            model.addAttribute("usernameExist",false);
+    public String registerUser(Model model) {
+        if (!model.containsAttribute("usernameExist")) {
+            model.addAttribute("usernameExist", false);
         }
-        if (!model.containsAttribute("emailExist")){
-            model.addAttribute("emailExist",false);
+        if (!model.containsAttribute("emailExist")) {
+            model.addAttribute("emailExist", false);
         }
         return "register";
     }
 
 
     @ModelAttribute
-    public UserRegisterBindingModel userRegisterBindingModel(){
+    public UserRegisterBindingModel userRegisterBindingModel() {
         return new UserRegisterBindingModel();
     }
+
     @PostMapping("/register")
     public String registerUserConfirm(@Valid UserRegisterBindingModel userRegisterBindingModel,
                                       BindingResult bindingResult,
-                                      RedirectAttributes redirectAttributes){
-        if (bindingResult.hasErrors() || !userRegisterBindingModel.getPassword().equals(userRegisterBindingModel.getConfirmPassword())){
+                                      RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasErrors() || !userRegisterBindingModel.getPassword().equals(userRegisterBindingModel.getConfirmPassword())) {
 
-            redirectAttributes
-                    .addFlashAttribute("userRegisterBindingModel",userRegisterBindingModel)
-                    .addFlashAttribute("org.springframework.validation.BindingResult.userRegisterBindingModel",bindingResult);
-
-            return "redirect:register";
-        }
-        if (userService.findByUsername(userRegisterBindingModel.getUsername())!= null){
-            redirectAttributes
-                    .addFlashAttribute("userRegisterBindingModel",userRegisterBindingModel)
-                    .addFlashAttribute("usernameExist",true);
-                    return "redirect:register";
-
-        }
-        if (userService.findByEmail(userRegisterBindingModel.getEmail())!= null){
             redirectAttributes
                     .addFlashAttribute("userRegisterBindingModel", userRegisterBindingModel)
-                    .addFlashAttribute("emailExist",true);
+                    .addFlashAttribute("org.springframework.validation.BindingResult.userRegisterBindingModel", bindingResult);
+
+            return "redirect:register";
+        }
+        if (userService.findByUsername(userRegisterBindingModel.getUsername()) != null) {
+            redirectAttributes
+                    .addFlashAttribute("userRegisterBindingModel", userRegisterBindingModel)
+                    .addFlashAttribute("usernameExist", true);
+            return "redirect:register";
+
+        }
+        if (userService.findByEmail(userRegisterBindingModel.getEmail()) != null) {
+            redirectAttributes
+                    .addFlashAttribute("userRegisterBindingModel", userRegisterBindingModel)
+                    .addFlashAttribute("emailExist", true);
             return "redirect:register";
         }
 
 
-        UserServiceModel user =modelMapper.map(userRegisterBindingModel, UserServiceModel.class);
+        UserServiceModel user = modelMapper.map(userRegisterBindingModel, UserServiceModel.class);
         userService.createUser(user);
-
 
 
         return "redirect:login";
     }
 
     @GetMapping("/login")
-    public String loginUser(){
+    public String loginUser(Model model) {
+        if (!model.containsAttribute("username")){
+            model.addAttribute("username","");
+        }
+        if (!model.containsAttribute("errorLogIn")){
+            model.addAttribute("errorLogIn",false);
+        }
+
+
         return "login";
     }
 
-    @GetMapping("/adminPanel")
-    public String adminPanel(){
-        return "test";
-    }
+    @PostMapping("/login-error")
+    public String loginError(
+            @ModelAttribute(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY) String username
+            , RedirectAttributes redirectAttributes) {
+        redirectAttributes.addFlashAttribute("username", username)
+                .addFlashAttribute("errorLogIn", true);
 
+        return "redirect:/users/login";
+    }
 }
+
+
