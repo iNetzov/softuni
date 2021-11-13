@@ -69,7 +69,7 @@ img {
     grid-gap: 25px;
     padding: 12px;
     list-style: none;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(7, 1fr);
 }
 
 .main-nav a {

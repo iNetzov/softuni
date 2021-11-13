@@ -67,7 +67,7 @@ public class UserServiceImpl implements UserService {
             admin.setUsername("admin");
             admin.setPassword(passwordEncoder.encode("12345"));
             admin.setFullName("Ivailo Netzov");
-            admin.setPicUrl("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.subpng.com%2Fpng-9lw7jx%2F&psig=AOvVaw0c6sFiecNtCHsdCz5bBcVU&ust=1636762391519000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKCY_pvFkfQCFQAAAAAdAAAAABAD");
+            admin.setPicUrl("https://lh3.googleusercontent.com/proxy/Nk8iU0OPG9yZ3i_ayl5X4OBIudpt6PbCuIWd5LsR6fHXHAS5u920O07vBNCroMY4cnsBNKGMkjnlqBJSCV8");
             admin.setEmail("admin@Gmail.com");
             admin.setRoles(Set.of(adminRole));
             userRepository.save(admin);
@@ -76,7 +76,7 @@ public class UserServiceImpl implements UserService {
             moderator.setUsername("moderator");
             moderator.setPassword(passwordEncoder.encode("12345"));
             moderator.setFullName("Liliq Kerezova");
-            moderator.setPicUrl("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.subpng.com%2Fpng-9lw7jx%2F&psig=AOvVaw0c6sFiecNtCHsdCz5bBcVU&ust=1636762391519000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKCY_pvFkfQCFQAAAAAdAAAAABAD");
+            moderator.setPicUrl("https://lh3.googleusercontent.com/proxy/Nk8iU0OPG9yZ3i_ayl5X4OBIudpt6PbCuIWd5LsR6fHXHAS5u920O07vBNCroMY4cnsBNKGMkjnlqBJSCV8");
             moderator.setEmail("moderator@Gmail.com");
             moderator.setRoles(Set.of(moderatorRole));
             userRepository.save(moderator);
@@ -85,7 +85,7 @@ public class UserServiceImpl implements UserService {
             userAcc.setUsername("userAcc");
             userAcc.setPassword(passwordEncoder.encode("12345"));
             userAcc.setFullName("Vesselin Netzov");
-            userAcc.setPicUrl("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.subpng.com%2Fpng-9lw7jx%2F&psig=AOvVaw0c6sFiecNtCHsdCz5bBcVU&ust=1636762391519000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKCY_pvFkfQCFQAAAAAdAAAAABAD");
+            userAcc.setPicUrl("https://lh3.googleusercontent.com/proxy/Nk8iU0OPG9yZ3i_ayl5X4OBIudpt6PbCuIWd5LsR6fHXHAS5u920O07vBNCroMY4cnsBNKGMkjnlqBJSCV8");
             userAcc.setEmail("user@Gmail.com");
             userAcc.setRoles(Set.of(userRole));
             userRepository.save(userAcc);
