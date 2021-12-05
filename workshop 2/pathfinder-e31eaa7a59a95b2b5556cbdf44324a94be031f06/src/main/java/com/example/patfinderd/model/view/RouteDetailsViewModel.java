@@ -2,10 +2,11 @@ package com.example.patfinderd.model.view;
 
 import com.example.patfinderd.model.entity.Picture;
 import com.example.patfinderd.model.entity.enums.LevelEnum;
+
 import java.util.Set;
 
 public class RouteDetailsViewModel {
-
+    private Long id;
     private String gpxCoordinates;
     private String description;
     private LevelEnum level;
@@ -14,6 +15,14 @@ public class RouteDetailsViewModel {
     private Set<Picture> pictures;
 
     public RouteDetailsViewModel() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getGpxCoordinates() {
