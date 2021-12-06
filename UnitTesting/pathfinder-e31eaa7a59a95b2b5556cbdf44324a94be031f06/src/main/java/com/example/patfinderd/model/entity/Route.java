@@ -4,15 +4,7 @@ import com.example.patfinderd.model.entity.enums.LevelEnum;
 
 import java.util.List;
 import java.util.Set;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "routes")
@@ -30,7 +22,7 @@ public class Route extends BaseEntity {
     public Route() {
     }
 
-    @OneToMany(mappedBy = "route",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "route",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     public List<Comment> getComments() {
         return comments;
     }
@@ -39,7 +31,7 @@ public class Route extends BaseEntity {
         this.comments = comments;
     }
 
-    @Column(columnDefinition = "LONGTEXT")
+    @Lob
     public String getGpxCoordinates() {
         return gpxCoordinates;
     }
@@ -84,7 +76,7 @@ public class Route extends BaseEntity {
         this.videoUrl = videoUrl;
     }
 
-    @Column(columnDefinition = "TEXT")
+    @Lob
     public String getDescription() {
         return description;
     }

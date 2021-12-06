@@ -1,10 +1,7 @@
 package com.example.patfinderd.model.entity;
 
 import java.time.LocalDateTime;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "comments")
@@ -28,7 +25,7 @@ public class Comment extends BaseEntity {
         this.approved = approved;
     }
 
-    @Column(columnDefinition = "TEXT")
+    @Lob
     public String getTextContent() {
         return textContent;
     }
