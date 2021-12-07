@@ -13,6 +13,17 @@ html {
     color: white;
 
 }
+.profile{
+    border:2px solid black;
+    display: inline-block;
+    margin-left: 12%;
+    width: 18%;
+    vertical-align: top;
+}
+ul{
+    list-style: none;
+}
+
 .text-coffee{
     color: #ad8b6f;
 }
@@ -33,7 +44,7 @@ body {
 .btn {
     background: #ad8b6f;
     color:  white;
-    padding: 0.6rem 1.3rem;
+    padding: 1rem 0.5rem;
     text-decoration: none;
     border: 0;
 }
@@ -52,6 +63,7 @@ body {
     text-decoration: none;
 
 }
+
 
 
 img {
@@ -80,14 +92,14 @@ img {
 
 }
 
-.main-nav a {
+.main-nav a, .main-nav .btn{
     background: var(--primary);
     display: block;
     border-radius: 35px;
     text-decoration: none;
     font-weight: bold;
     font-family: serif;
-    padding: 1rem;
+    padding: 1rem 3rem;
     text-align: center;
     color: #ad8b6f;
     text-transform: uppercase;
@@ -95,10 +107,14 @@ img {
     box-shadow: var(--shadow);
 }
 
-.main-nav a:hover {
+.main-nav a:hover , .main-nav .btn:hover{
     background: #ad8b6f;
     color: #222222;
 }
+/*.main-nav .btn:hover {*/
+/*    background: #ad8b6f;*/
+/*    color: #222222;*/
+/*}*/
 /* Footer */
 footer {
 
