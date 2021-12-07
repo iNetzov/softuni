@@ -6,22 +6,24 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "categories")
 public class CategoryEntity extends BaseEntity {
 
-    private CategoryEntityNameEnum category;
+    private CategoryEntityNameEnum name;
 
     public CategoryEntity() {
     }
 
     @Enumerated(EnumType.STRING)
-    public CategoryEntityNameEnum getCategory() {
-        return category;
+    @NotNull
+    public CategoryEntityNameEnum getName() {
+        return name;
     }
 
-    public void setCategory(CategoryEntityNameEnum category) {
-        this.category = category;
+    public void setName(CategoryEntityNameEnum category) {
+        this.name = category;
     }
 }

@@ -1,36 +1,23 @@
-package com.example.demo.models.entity;
+package com.example.demo.models.binding;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import com.example.demo.models.entity.enums.CategoryEntityNameEnum;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
-@Entity
-@Table(name = "products")
-public class ProductEntity extends BaseEntity {
+public class ProductAddBindingModel {
     private String name;
     private BigDecimal price;
     private String description;
     private String pictureUrl;
-    private CategoryEntity category;
+    private CategoryEntityNameEnum category;
 
-    public ProductEntity() {
+    public ProductAddBindingModel() {
     }
 
-    @ManyToOne
-    public CategoryEntity getCategory() {
-        return category;
-    }
-
-    public void setCategory(CategoryEntity category) {
-        this.category = category;
-    }
-
-    @Column(name = "name",nullable = false,unique = true)
+    @NotNull
     @Size(min = 5,max = 35)
     public String getName() {
         return name;
@@ -39,7 +26,6 @@ public class ProductEntity extends BaseEntity {
     public void setName(String name) {
         this.name = name;
     }
-
     @Positive
     @NotNull
     public BigDecimal getPrice() {
@@ -49,9 +35,8 @@ public class ProductEntity extends BaseEntity {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
-
-    @Column(name = "description",columnDefinition = "TEXT",nullable = false)
     @Size(min = 15)
+    @NotNull
     public String getDescription() {
         return description;
     }
@@ -60,7 +45,6 @@ public class ProductEntity extends BaseEntity {
         this.description = description;
     }
 
-    @Column(name = "url",columnDefinition = "TEXT")
     @NotNull
     @Size(min = 5)
     public String getPictureUrl() {
@@ -69,5 +53,14 @@ public class ProductEntity extends BaseEntity {
 
     public void setPictureUrl(String pictureUrl) {
         this.pictureUrl = pictureUrl;
+    }
+
+    @NotNull
+    public CategoryEntityNameEnum getCategory() {
+        return category;
+    }
+
+    public void setCategory(CategoryEntityNameEnum category) {
+        this.category = category;
     }
 }
