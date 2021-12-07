@@ -10,8 +10,32 @@ import javax.validation.constraints.Size;
 @Table(name = "stores")
 public class StoreEntity extends BaseEntity{
     private String address;
+    private String name;
+    private String url;
 
     public StoreEntity() {
+    }
+
+    @Column(name = "name",nullable = false,unique = true)
+    @NotNull
+    @Size(min = 5,max = 35)
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Column(name = "picture_url",nullable = false)
+    @NotNull
+    @Size(min = 5)
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     @Column(name = "addresss",nullable = false)

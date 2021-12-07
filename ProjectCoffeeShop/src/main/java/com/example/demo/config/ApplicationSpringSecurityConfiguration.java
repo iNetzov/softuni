@@ -39,9 +39,9 @@ public class ApplicationSpringSecurityConfiguration extends WebSecurityConfigure
         http
                 .authorizeRequests()
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                .antMatchers("/","/users/register","/users/login","/about","products/all").permitAll()
-                .antMatchers("/panel/admin").hasRole(RoleEntityNameEnum.ADMIN.name())
-                .antMatchers("/panel/moderator").hasRole(RoleEntityNameEnum.MODERATOR.name())
+                .antMatchers("/","/users/register","/users/login","/about","/products/all").permitAll()
+                .antMatchers("/panel/admin","/stores/add","/products/add").hasRole(RoleEntityNameEnum.ADMIN.name())
+                .antMatchers("/panel/moderator","/stores/add","/products/add").hasRole(RoleEntityNameEnum.MODERATOR.name())
                 .antMatchers("/**").authenticated()
                 .and()
                 .formLogin()
