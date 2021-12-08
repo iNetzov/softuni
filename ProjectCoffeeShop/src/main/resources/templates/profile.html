@@ -7,13 +7,13 @@
 <div class="container text-light position-static ">
     <h1 class="display-3 text-center"><b>Profile</b></h1>
 </div>
-<div class="container bg-blur rounded p-5 mt-5 w-75 text-center text-light">
+<div th:object="${profileInfo}" class="container bg-blur rounded p-5 mt-5 w-75 text-center text-light">
     <hr class="bg-light">
         <div class="form-group row">
             <label for="username" class="col-sm-2 col-form-label">Username</label>
             <div class="col-sm-10">
                 <input type="text" name="username" class="form-control" id="username"
-                       aria-describedby="usernameHelpInline" value="ivn9812" disabled readonly>
+                       aria-describedby="usernameHelpInline" th:value="*{username}" disabled readonly>
             </div>
         </div>
 
@@ -22,14 +22,14 @@
         <label for="fullName" class="col-sm-2 col-form-label">Full Name</label>
         <div class="col-sm-10">
             <input type="text" name="fullName" class="form-control" id="fullName"
-                   aria-describedby="fullNameHelpInline" value="Ivailo Netzov" disabled readonly>
+                   aria-describedby="fullNameHelpInline" th:value="*{fullName}" disabled readonly>
         </div>
     </div>
     <div class="form-group row">
         <label for="email" class="col-sm-2 col-form-label">Email</label>
         <div class="col-sm-10">
             <input type="text" name="email" class="form-control" id="email"
-                   aria-describedby="emailHelpInline" value="ivn9812@gmail.com" disabled readonly>
+                   aria-describedby="emailHelpInline" th:value="*{email}" disabled readonly>
         </div>
     </div>
     </div>

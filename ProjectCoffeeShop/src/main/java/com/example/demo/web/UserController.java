@@ -1,10 +1,14 @@
 package com.example.demo.web;
 
 import com.example.demo.models.binding.UserRegisterBindingModel;
+import com.example.demo.models.entity.UserEntity;
 import com.example.demo.models.entity.enums.RoleEntityNameEnum;
 import com.example.demo.models.service.UserServiceModel;
+import com.example.demo.models.view.ProfileViewModel;
 import com.example.demo.service.UserService;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -101,6 +105,15 @@ public class UserController {
                 .addFlashAttribute("errorLogIn", true);
 
         return "redirect:/users/login";
+    }
+
+    @GetMapping("/profile")
+    public String profile(@AuthenticationPrincipal UserDetails userDetails, Model model){
+        String username = userDetails.getUsername();
+        UserEntity currentUser = userService.findByUsername(username);
+        ProfileViewModel profileViewModel = modelMapper.map(currentUser, ProfileViewModel.class);
+        model.addAttribute("profileInfo",profileViewModel);
+        return "profile";
     }
 }
 
