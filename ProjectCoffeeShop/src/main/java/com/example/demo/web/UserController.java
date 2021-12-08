@@ -5,14 +5,18 @@ import com.example.demo.models.entity.UserEntity;
 import com.example.demo.models.service.UserServiceModel;
 import com.example.demo.models.view.UserProfileViewModel;
 import com.example.demo.service.UserService;
+import com.example.demo.web.exeptions.ForbiddenActionException;
 import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.web.authentication.Http403ForbiddenEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -110,6 +114,18 @@ public class UserController {
         UserProfileViewModel userProfileViewModel = modelMapper.map(currentUser, UserProfileViewModel.class);
         model.addAttribute("profileInfo", userProfileViewModel);
         return "profile";
+    }
+
+    @GetMapping("/profile/edit/{id}")
+    public String a (@PathVariable Long id,@AuthenticationPrincipal UserDetails userDetails)  {
+        UserEntity currentUsername = userService.findByUsername(userDetails.getUsername());
+        System.out.println();
+        if (!id.equals(currentUsername.getId())){
+            throw new ForbiddenActionException();
+        }
+
+
+        return "index";
     }
 }
 
