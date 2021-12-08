@@ -12,4 +12,5 @@ public interface ProductService {
     void addProduct(ProductServiceModel productServiceModel);
     void initProducts();
     List<ProductsAllViewModel> getAllProducts();
+
 }

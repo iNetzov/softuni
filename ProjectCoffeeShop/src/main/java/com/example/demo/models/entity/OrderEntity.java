@@ -2,15 +2,13 @@ package com.example.demo.models.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.util.List;
 
 @Entity
 @Table(name = "orders")
 public class OrderEntity extends BaseEntity {
     private UserEntity customer;
-    private List<ProductEntity> products;
+    private ProductEntity product;
     private StoreEntity store;
 
     public OrderEntity() {
@@ -25,13 +23,13 @@ public class OrderEntity extends BaseEntity {
         this.customer = customer;
     }
 
-    @OneToMany
-    public List<ProductEntity> getProducts() {
-        return products;
+    @ManyToOne
+    public ProductEntity getProduct() {
+        return product;
     }
 
-    public void setProducts(List<ProductEntity> products) {
-        this.products = products;
+    public void setProduct(ProductEntity products) {
+        this.product = products;
     }
 
     @ManyToOne

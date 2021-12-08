@@ -97,7 +97,6 @@ public class ProductServiceImpl implements ProductService {
                 .map(offerEntity, ProductsAllViewModel.class);
         view.setCategory(offerEntity.getCategory().getName());
 
-
         return view;
     }
 }
