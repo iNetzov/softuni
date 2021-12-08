@@ -11,6 +11,6 @@ public class testController {
 
     @GetMapping("/test")
     public String testSometing(){
-      return "test";
+      return "products-all";
     }
 }

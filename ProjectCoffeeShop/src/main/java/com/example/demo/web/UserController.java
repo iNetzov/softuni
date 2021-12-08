@@ -2,9 +2,8 @@ package com.example.demo.web;
 
 import com.example.demo.models.binding.UserRegisterBindingModel;
 import com.example.demo.models.entity.UserEntity;
-import com.example.demo.models.entity.enums.RoleEntityNameEnum;
 import com.example.demo.models.service.UserServiceModel;
-import com.example.demo.models.view.ProfileViewModel;
+import com.example.demo.models.view.UserProfileViewModel;
 import com.example.demo.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -16,10 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.util.Set;
 
 @Controller
 @RequestMapping("/users")
@@ -111,8 +107,8 @@ public class UserController {
     public String profile(@AuthenticationPrincipal UserDetails userDetails, Model model){
         String username = userDetails.getUsername();
         UserEntity currentUser = userService.findByUsername(username);
-        ProfileViewModel profileViewModel = modelMapper.map(currentUser, ProfileViewModel.class);
-        model.addAttribute("profileInfo",profileViewModel);
+        UserProfileViewModel userProfileViewModel = modelMapper.map(currentUser, UserProfileViewModel.class);
+        model.addAttribute("profileInfo", userProfileViewModel);
         return "profile";
     }
 }

@@ -1,0 +1,40 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/fragments::head"></head>
+<body>
+<div class="wrapper">
+    <header  th:replace="fragments/fragments::navigation" ></header>
+</div>
+<!--element to add-->
+
+    <div class="card text-light text-center" style="display: inline-block">
+        <img src="img_avatar.png" alt="Avatar" >
+        <div class="container">
+            <h4><b>John Doe</b></h4>
+            <p>Architect & Engineer</p>
+        </div>
+    </div>
+<div  class="card text-light text-center resizePhoto" style="display: inline-block">
+    <img src="https://cdn.dribbble.com/users/547262/screenshots/2036480/caffee.png" alt="Avatar" >
+    <div class="container">
+        <h4><b>John Doe</b></h4>
+        <p>Architect & Engineer</p>
+    </div>
+</div>
+<div class="card text-light text-center resizePhoto" style="display: inline-block">
+    <img src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/3624270/original/Coffee_Scene_4/replicate-your-logo-in-photorealistic-caffee-latte-art-mockup.jpg" alt="Avatar">
+    <div class="container">
+        <h4><b>John Doe</b></h4>
+        <p>Architect & Engineer</p>
+    </div>
+</div>
+
+
+
+
+</body>
+<footer th:replace="fragments/fragments::footer">
+</footer>
+
+</html>

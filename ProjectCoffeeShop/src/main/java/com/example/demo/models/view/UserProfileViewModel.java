@@ -1,13 +1,13 @@
 package com.example.demo.models.view;
 
-public class ProfileViewModel {
+public class UserProfileViewModel {
     private Long id;
     private String username;
     private String fullName;
     private String email;
     private String picUrl;
 
-    public ProfileViewModel() {
+    public UserProfileViewModel() {
     }
 
     public Long getId() {

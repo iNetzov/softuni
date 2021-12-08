@@ -126,3 +126,30 @@ footer {
     text-align: center;
     padding: 1rem;
 }
+
+/*testing*/
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: rgba(255,255,255,0.3);
+    opacity: revert;
+    transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+    padding: 2px 16px;
+}
+.resizePhoto{
+    max-height: 600px;
+    max-width: 600px;
+    width: 450px;
+    height: 500px;
+}
+/* Add some padding inside the card container */
+/*testing*/
