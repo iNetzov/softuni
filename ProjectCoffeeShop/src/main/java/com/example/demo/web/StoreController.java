@@ -3,7 +3,9 @@ package com.example.demo.web;
 import com.example.demo.models.binding.StoreAddBindingModel;
 import com.example.demo.models.entity.StoreEntity;
 import com.example.demo.models.service.StoreServiceModel;
+import com.example.demo.models.view.StoresAllViewModel;
 import com.example.demo.service.StoreService;
+import org.dom4j.rule.Mode;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/stores")
@@ -65,6 +68,14 @@ public class StoreController {
 
         return "redirect:/";
     }
+
+    @GetMapping("/all")
+    public String allStores(Model model){
+        List<StoresAllViewModel> allStores = storeService.getAllStores();
+        model.addAttribute("allStores",allStores);
+
+        return "store-all";
+        }
 
 
 }

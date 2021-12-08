@@ -1,7 +1,10 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.models.entity.ProductEntity;
 import com.example.demo.models.entity.StoreEntity;
 import com.example.demo.models.service.StoreServiceModel;
+import com.example.demo.models.view.ProductsAllViewModel;
+import com.example.demo.models.view.StoresAllViewModel;
 import com.example.demo.repository.StoreRepository;
 import com.example.demo.service.StoreService;
 import org.modelmapper.ModelMapper;
@@ -9,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class StoreServiceImpl implements StoreService {
@@ -63,5 +67,19 @@ public class StoreServiceImpl implements StoreService {
         storeRepository.saveAll(storesToAdd);
 
 
+    }
+
+    @Override
+    public List<StoresAllViewModel> getAllStores() {
+       return storeRepository
+               .findAll()
+               .stream()
+               .map(this::map)
+               .collect(Collectors.toList());
+    }
+    private StoresAllViewModel map(StoreEntity storeEntity) {
+        StoresAllViewModel view = this.modelMapper
+                .map(storeEntity, StoresAllViewModel.class);
+        return view;
     }
 }
