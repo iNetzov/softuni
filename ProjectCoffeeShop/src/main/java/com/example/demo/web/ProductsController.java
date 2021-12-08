@@ -2,6 +2,7 @@ package com.example.demo.web;
 
 import com.example.demo.models.binding.ProductAddBindingModel;
 import com.example.demo.models.service.ProductServiceModel;
+import com.example.demo.models.view.ProductsAllViewModel;
 import com.example.demo.service.ProductService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/products")
@@ -63,6 +65,15 @@ public class ProductsController {
         System.out.println();
         productService.addProduct(productServiceModel);
         return "redirect:/";
+    }
+
+    @GetMapping("/all")
+    public String allProducts(Model model){
+        List<ProductsAllViewModel> allProducts = productService.getAllProducts();
+        model.addAttribute("allProducts",allProducts);
+
+        return "products-all";
+
     }
 
 

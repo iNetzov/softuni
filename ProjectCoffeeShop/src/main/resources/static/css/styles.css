@@ -146,10 +146,10 @@ footer {
     padding: 2px 16px;
 }
 .resizePhoto{
-    max-height: 600px;
-    max-width: 600px;
-    width: 450px;
-    height: 500px;
+    max-height: 400px;
+    max-width: 400px;
+    width: 350px;
+    height: 400px;
 }
 /* Add some padding inside the card container */
 /*testing*/

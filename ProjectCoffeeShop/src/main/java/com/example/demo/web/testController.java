@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class testController {
 
 
-    @GetMapping("/test")
-    public String testSometing(){
-      return "products-all";
-    }
+//    @GetMapping("/test")
+//    public String testSometing(){
+//      return "products-all";
+//    }
 }

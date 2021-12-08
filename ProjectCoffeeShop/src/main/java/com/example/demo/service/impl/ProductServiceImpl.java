@@ -3,6 +3,7 @@ package com.example.demo.service.impl;
 import com.example.demo.models.entity.ProductEntity;
 import com.example.demo.models.entity.enums.CategoryEntityNameEnum;
 import com.example.demo.models.service.ProductServiceModel;
+import com.example.demo.models.view.ProductsAllViewModel;
 import com.example.demo.repository.ProductRepository;
 import com.example.demo.service.CategoryService;
 import com.example.demo.service.ProductService;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -83,5 +85,19 @@ public class ProductServiceImpl implements ProductService {
         productsToAddList.add(product4);
 
         productRepository.saveAll(productsToAddList);
+    }
+
+    @Override
+    public List<ProductsAllViewModel> getAllProducts() {
+        return productRepository.findAll().stream().map(this::map).collect(Collectors.toList());
+    }
+
+    private ProductsAllViewModel map(ProductEntity offerEntity) {
+        ProductsAllViewModel view = this.modelMapper
+                .map(offerEntity, ProductsAllViewModel.class);
+        view.setCategory(offerEntity.getCategory().getName());
+
+
+        return view;
     }
 }

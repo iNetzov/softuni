@@ -6,96 +6,25 @@
 <div class="wrapper">
     <header  th:replace="fragments/fragments::navigation" ></header>
 </div>
+<div class="container text-light position-static ">
+    <h1 class="display-3 text-center"><b>Products</b></h1>
+</div>
 <!--element to add-->
-
-    <div class="card text-light text-center resizePhoto" style="display: inline-block">
-        <img src="http://www.green-coffee-shop.com/blog/wp-content/uploads/2021/11/171026-better-coffee-boost-se-329p.jpg" alt="Avatar" >
-        <div class="container">
-            <h4><b>John Doe</b></h4>
-            <p>Architect & Engineer</p>
+<div id="containerForProducts">
+    <div  th:each="p : ${allProducts}" th:object="${p}" class="card text-light text-center resizePhoto " style="display: inline-block">
+        <div  class="container">
+            <img th:src="*{getPictureUrl()}" alt="Avatar" >
+            <h3 th:text="*{name}"><b>name</b></h3>
+            <p th:text="'Price: '+ *{price}"><b></b></p>
+            <div id="hiddenFields" style="display: none" >
+            <p th:text="*{description}"></p>
+            <p th:text="*{category}"></p>
+            </div>
+            <button  type="button"  class="btn btn-info w-50">More Details</button>
         </div>
     </div>
-<div  class="card text-light text-center resizePhoto" style="display: inline-block">
-    <img src="https://cdn.dribbble.com/users/547262/screenshots/2036480/caffee.png" alt="Avatar" >
-    <div class="container">
-        <h4><b>John Doe</b></h4>
-        <p>Architect & Engineer</p>
-    </div>
 </div>
-<div class="card text-light text-center resizePhoto" style="display: inline-block">
-    <img src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/3624270/original/Coffee_Scene_4/replicate-your-logo-in-photorealistic-caffee-latte-art-mockup.jpg" alt="Avatar">
-    <div class="container">
-        <h4><b>John Doe</b></h4>
-        <p>Architect & Engineer</p>
-    </div>
-</div>
-<div class="card text-light text-center resizePhoto" style="display: inline-block">
-    <img src="http://www.green-coffee-shop.com/blog/wp-content/uploads/2021/11/171026-better-coffee-boost-se-329p.jpg" alt="Avatar" >
-    <div class="container">
-        <h4><b>John Doe</b></h4>
-        <p>Architect & Engineer</p>
-    </div>
-</div>
-<div class="card text-light text-center resizePhoto" style="display: inline-block">
-    <img src="http://www.green-coffee-shop.com/blog/wp-content/uploads/2021/11/171026-better-coffee-boost-se-329p.jpg" alt="Avatar" >
-    <div class="container">
-        <h4><b>John Doe</b></h4>
-        <p>Architect & Engineer</p>
-    </div>
-</div>
-<div class="card text-light text-center resizePhoto" style="display: inline-block">
-    <img src="http://www.green-coffee-shop.com/blog/wp-content/uploads/2021/11/171026-better-coffee-boost-se-329p.jpg" alt="Avatar" >
-    <div class="container">
-        <h4><b>John Doe</b></h4>
-        <p>Architect & Engineer</p>
-    </div>
-</div>
-<div class="card text-light text-center resizePhoto" style="display: inline-block">
-    <img src="http://www.green-coffee-shop.com/blog/wp-content/uploads/2021/11/171026-better-coffee-boost-se-329p.jpg" alt="Avatar" >
-    <div class="container">
-        <h4><b>John Doe</b></h4>
-        <p>Architect & Engineer</p>
-    </div>
-</div>
-<div class="card text-light text-center resizePhoto" style="display: inline-block">
-    <img src="http://www.green-coffee-shop.com/blog/wp-content/uploads/2021/11/171026-better-coffee-boost-se-329p.jpg" alt="Avatar" >
-    <div class="container">
-        <h4><b>John Doe</b></h4>
-        <p>Architect & Engineer</p>
-    </div>
-</div>
-<div class="card text-light text-center resizePhoto" style="display: inline-block">
-    <img src="http://www.green-coffee-shop.com/blog/wp-content/uploads/2021/11/171026-better-coffee-boost-se-329p.jpg" alt="Avatar" >
-    <div class="container">
-        <h4><b>John Doe</b></h4>
-        <p>Architect & Engineer</p>
-    </div>
-</div>
-<div class="card text-light text-center resizePhoto" style="display: inline-block">
-    <img src="http://www.green-coffee-shop.com/blog/wp-content/uploads/2021/11/171026-better-coffee-boost-se-329p.jpg" alt="Avatar" >
-    <div class="container">
-        <h4><b>John Doe</b></h4>
-        <p>Architect & Engineer</p>
-    </div>
-</div>
-<div class="card text-light text-center resizePhoto" style="display: inline-block">
-    <img src="http://www.green-coffee-shop.com/blog/wp-content/uploads/2021/11/171026-better-coffee-boost-se-329p.jpg" alt="Avatar" >
-    <div class="container">
-        <h4><b>John Doe</b></h4>
-        <p>Architect & Engineer</p>
-    </div>
-</div>
-<div class="card text-light text-center resizePhoto" style="display: inline-block">
-    <img src="http://www.green-coffee-shop.com/blog/wp-content/uploads/2021/11/171026-better-coffee-boost-se-329p.jpg" alt="Avatar" >
-    <div class="container">
-        <h4><b>John Doe</b></h4>
-        <p>Architect & Engineer</p>
-    </div>
-</div>
-
-
-
-
+<script th:src="@{/js/productsShowMore.js}"></script>
 </body>
 <footer th:replace="fragments/fragments::footer">
 </footer>
