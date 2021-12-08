@@ -7,4 +7,5 @@ public interface ProductService {
     ProductEntity findByProductName(String name);
 
     void addProduct(ProductServiceModel productServiceModel);
+    void initProducts();
 }

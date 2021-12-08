@@ -34,7 +34,6 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public CategoryEntity findByCategoryNameEnum(CategoryEntityNameEnum nameEnum) {
-        System.out.println(nameEnum);
         return categoryRepository.findByName(nameEnum).orElse(null);
     }
 }
