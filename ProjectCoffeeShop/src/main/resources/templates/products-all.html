@@ -11,9 +11,9 @@
 </div>
 <!--element to add-->
 <div id="containerForProducts">
-    <div  th:each="p : ${allProducts}" th:object="${p}" class="card text-light text-center resizePhoto " style="display: inline-block">
+    <div  th:each="p : ${allProducts}" th:object="${p}" class="card text-light text-center  " style="display: inline-block">
         <div  class="container">
-            <img th:src="*{getPictureUrl()}" alt="Avatar" >
+            <img th:src="*{getPictureUrl()}" class="resizePhoto" alt="Avatar" >
             <h3 th:text="*{name}"><b>name</b></h3>
             <p th:text="'Price: '+ *{price}"><b></b></p>
             <div id="hiddenFields" style="display: none" >
@@ -25,6 +25,7 @@
     </div>
 </div>
 <script th:src="@{/js/productsShowMore.js}"></script>
+<p></p>
 </body>
 <footer th:replace="fragments/fragments::footer">
 </footer>

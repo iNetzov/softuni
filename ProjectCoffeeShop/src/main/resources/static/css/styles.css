@@ -30,7 +30,17 @@ ul{
 
 body {
 
-    background-image: url("/images/test2.jpg");
+    background-image: url("/images/test2.jpg");backdrop-filter: blur(8px);
+    padding: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 30px 50px;
+    line-height: 1.4;
+    object-fit: cover;
+
+}
+.main-container{
     backdrop-filter: blur(8px);
     padding: 10px;
     background-position: center;
@@ -134,6 +144,8 @@ footer {
     background-color: rgba(255,255,255,0.3);
     opacity: revert;
     transition: 0.3s;
+    padding: 20px 10px;
+    margin: 20px 10px;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -150,6 +162,8 @@ footer {
     max-width: 400px;
     width: 350px;
     height: 400px;
+    object-fit: cover;
+    object-position: center;
 }
 /* Add some padding inside the card container */
 /*testing*/
