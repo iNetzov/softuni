@@ -27,7 +27,7 @@ public class StoreEntity extends BaseEntity{
         this.name = name;
     }
 
-    @Column(name = "picture_url",nullable = false)
+    @Column(name = "picture_url",nullable = false,columnDefinition = "TEXT")
     @NotNull
     @Size(min = 5)
     public String getUrl() {

@@ -7,4 +7,5 @@ public interface StoreService {
     StoreEntity findByName(String name);
 
     void addStore(StoreServiceModel storeServiceModel);
+    void initStores();
 }
