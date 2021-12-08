@@ -124,6 +124,7 @@ public class UserController {
             throw new ForbiddenActionException();
         }
 
+        //userService.update(id,"NIKOLAI FILIPOV4");
 
         return "index";
     }

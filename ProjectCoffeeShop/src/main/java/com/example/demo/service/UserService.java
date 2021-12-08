@@ -3,6 +3,8 @@ package com.example.demo.service;
 import com.example.demo.models.entity.UserEntity;
 import com.example.demo.models.service.UserServiceModel;
 
+import java.util.Optional;
+
 public interface UserService {
 
 
@@ -13,4 +15,5 @@ public interface UserService {
     UserEntity findByEmail(String email);
 
     void initializeUsers();
+    Optional<UserEntity> update(long userId, String fullName);
 }

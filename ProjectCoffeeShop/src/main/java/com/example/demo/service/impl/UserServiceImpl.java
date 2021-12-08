@@ -8,11 +8,14 @@ import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.RoleService;
 import com.example.demo.service.UserService;
+import com.example.demo.web.exeptions.ObjectNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -92,5 +95,15 @@ public class UserServiceImpl implements UserService {
 
 
         }
+    }
+
+    @Transactional
+    @Override
+    public Optional<UserEntity> update(long userId, String fullName) {
+        Optional<UserEntity> user = userRepository.findById(userId);
+        return userRepository.findById(userId).map(target -> {
+            target.setFullName(fullName);
+            return target;
+        });
     }
 }
