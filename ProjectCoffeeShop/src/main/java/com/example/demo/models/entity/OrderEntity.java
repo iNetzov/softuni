@@ -1,5 +1,6 @@
 package com.example.demo.models.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -23,7 +24,7 @@ public class OrderEntity extends BaseEntity {
         this.customer = customer;
     }
 
-    @ManyToOne
+    @ManyToOne()
     public ProductEntity getProduct() {
         return product;
     }

@@ -8,30 +8,46 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "logs")
 public class LogEntity extends BaseEntity {
-    private UserEntity client;
-    private OrderEntity order;
+    private String clientName;
+    private Long orderId;
     private LocalDateTime done;
+    private String productName;
+    private String StoreName;
 
 
     public LogEntity() {
     }
 
-    @ManyToOne
-    public UserEntity getClient() {
-        return client;
+    public String getStoreName() {
+        return StoreName;
     }
 
-    public void setClient(UserEntity client) {
-        this.client = client;
+    public void setStoreName(String storeName) {
+        StoreName = storeName;
     }
 
-    @ManyToOne
-    public OrderEntity getOrder() {
-        return order;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setOrder(OrderEntity order) {
-        this.order = order;
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getClientName() {
+        return clientName;
+    }
+
+    public void setClientName(String clientName) {
+        this.clientName = clientName;
+    }
+
+    public Long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 
     @PastOrPresent

@@ -1,16 +1,22 @@
 package com.example.demo.web;
 
-import org.hibernate.ObjectNotFoundException;
-import org.springframework.http.HttpStatus;
+import com.example.demo.service.OrderService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class testController {
 
+    private final OrderService orderService;
 
-//    @GetMapping("/test")
-//    public String testSometing(){
-//      return "products-all";
-//    }
+    public testController(OrderService orderService) {
+        this.orderService = orderService;
+    }
+
+
+    @GetMapping("/test")
+    public String testSometing(){
+      orderService.moveToLogs();
+      return "index";
+    }
 }

@@ -6,4 +6,5 @@ public interface OrderService {
     OrderServiceModel createOrderServiceModel(String username, String product, String store);
 
     void addOrder(OrderServiceModel order);
+    void moveToLogs();
 }
