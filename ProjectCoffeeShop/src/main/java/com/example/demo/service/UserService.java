@@ -15,5 +15,5 @@ public interface UserService {
     UserEntity findByEmail(String email);
 
     void initializeUsers();
-    Optional<UserEntity> update(long userId, String fullName);
+    Optional<UserEntity> updateUser(long userId, String fullName);
 }

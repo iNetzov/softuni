@@ -1,22 +1,20 @@
 package com.example.demo.web;
 
+import com.example.demo.models.binding.ProfileEditBindingModel;
 import com.example.demo.models.binding.UserRegisterBindingModel;
 import com.example.demo.models.entity.UserEntity;
 import com.example.demo.models.service.UserServiceModel;
+import com.example.demo.models.view.UserEditProfileViewModel;
 import com.example.demo.models.view.UserProfileViewModel;
 import com.example.demo.service.UserService;
-import com.example.demo.web.exeptions.ForbiddenActionException;
 import org.modelmapper.ModelMapper;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.web.authentication.Http403ForbiddenEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -86,11 +84,11 @@ public class UserController {
 
     @GetMapping("/login")
     public String loginUser(Model model) {
-        if (!model.containsAttribute("username")){
-            model.addAttribute("username","");
+        if (!model.containsAttribute("username")) {
+            model.addAttribute("username", "");
         }
-        if (!model.containsAttribute("errorLogIn")){
-            model.addAttribute("errorLogIn",false);
+        if (!model.containsAttribute("errorLogIn")) {
+            model.addAttribute("errorLogIn", false);
         }
 
 
@@ -108,7 +106,7 @@ public class UserController {
     }
 
     @GetMapping("/profile")
-    public String profile(@AuthenticationPrincipal UserDetails userDetails, Model model){
+    public String profile(@AuthenticationPrincipal UserDetails userDetails, Model model) {
         String username = userDetails.getUsername();
         UserEntity currentUser = userService.findByUsername(username);
         UserProfileViewModel userProfileViewModel = modelMapper.map(currentUser, UserProfileViewModel.class);
@@ -116,18 +114,43 @@ public class UserController {
         return "profile";
     }
 
-    @GetMapping("/profile/edit/{id}")
-    public String a (@PathVariable Long id,@AuthenticationPrincipal UserDetails userDetails)  {
-        UserEntity currentUsername = userService.findByUsername(userDetails.getUsername());
-        System.out.println();
-        if (!id.equals(currentUsername.getId())){
-            throw new ForbiddenActionException();
-        }
 
-        //userService.update(id,"NIKOLAI FILIPOV4");
+    @GetMapping("/profile/edit")
+    public String editProfile( @AuthenticationPrincipal UserDetails userDetails, Model model) {
+        UserEntity currentUsername = userService.findByUsername(userDetails.getUsername());
+        UserEditProfileViewModel userViewModel = new UserEditProfileViewModel();
+        userViewModel.setUsername(currentUsername.getUsername());
+        userViewModel.setId(currentUsername.getId());
+        userViewModel.setEmail(currentUsername.getEmail());
+        userViewModel.setFullName(currentUsername.getFullName());
+        model.addAttribute("userEditProfileViewModel", userViewModel);
+
+        return "profile-edit";
+    }
+
+    @ModelAttribute
+    public ProfileEditBindingModel profileEditBindingModel() {
+        return new ProfileEditBindingModel();
+    }
+
+    @PostMapping("/profile/edit")
+    public String editProfileConfirm(@AuthenticationPrincipal UserDetails userDetails,@Valid ProfileEditBindingModel profileEditBindingModel, BindingResult bindingResult, RedirectAttributes redirectAttributes,Model model) {
+
+        if (bindingResult.hasErrors()) {
+
+            redirectAttributes
+                    .addFlashAttribute("profileEditBindingModel", profileEditBindingModel)
+                    .addFlashAttribute("org.springframework.validation.BindingResult.profileEditBindingModel", bindingResult);
+            return "redirect:edit";
+        }
+        String username = userDetails.getUsername();
+        UserEntity currentUser = userService.findByUsername(username);
+
+        userService.updateUser(currentUser.getId(),profileEditBindingModel.getFullName());
 
         return "index";
     }
+
 }
 
 

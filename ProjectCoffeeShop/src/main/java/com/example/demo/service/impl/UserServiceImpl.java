@@ -99,7 +99,7 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public Optional<UserEntity> update(long userId, String fullName) {
+    public Optional<UserEntity> updateUser(long userId, String fullName) {
         Optional<UserEntity> user = userRepository.findById(userId);
         return userRepository.findById(userId).map(target -> {
             target.setFullName(fullName);
