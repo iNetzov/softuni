@@ -4,12 +4,12 @@
      button.addEventListener('click',(e)=>{
          if (e.target.textContent == 'More Details'){
              e.target.parentNode.children[3].style.display = 'inline';
-             e.target.parentNode.children[0].classList.add('resizePhotoSmall');
              e.target.textContent = "Less Details"
+             e.target.parentNode.children[0].classList.add('resizePhotoProductsSmall');
          }else{
              e.target.parentNode.children[3].style.display = 'none'
              e.target.textContent = "More Details"
-             e.target.parentNode.children[0].classList.remove('resizePhotoSmall');
+             e.target.parentNode.children[0].classList.remove('resizePhotoProductsSmall');
 
          }
 

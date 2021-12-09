@@ -163,7 +163,6 @@ footer {
 .container {
     padding: 2px 16px;
 }
-
 .resizePhoto{
     max-height: 400px;
     max-width: 400px;
@@ -172,14 +171,14 @@ footer {
     object-fit: cover;
     object-position: center;
 }
-.resizePhotoSmall{
+.resizePhotoProductsSmall{
     width: 350px;
     height: 323px;
 }
-.resizePhotoSmallStore{
+.resizePhotoStoresSmall{
     width: 350px;
-    height: 360px;
-
+    height: 361px;
 }
+
 /* Add some padding inside the card container */
 /*testing*/
