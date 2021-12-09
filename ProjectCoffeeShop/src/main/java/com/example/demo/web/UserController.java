@@ -146,7 +146,7 @@ public class UserController {
         String username = userDetails.getUsername();
         UserEntity currentUser = userService.findByUsername(username);
 
-        userService.updateUser(currentUser.getId(),profileEditBindingModel.getFullName());
+        userService.updateUserFullName(currentUser.getId(),profileEditBindingModel.getFullName());
 
         return "index";
     }

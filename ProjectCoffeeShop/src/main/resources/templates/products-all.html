@@ -15,7 +15,7 @@
         <div  class="container">
             <img th:src="*{getPictureUrl()}" class="resizePhoto" alt="Avatar" >
             <h3 th:text="*{name}"><b>name</b></h3>
-            <p th:text="'Price: '+ *{price}"><b></b></p>
+            <p th:text="'Price: '+ *{price}+'&euro;'"><b>price</b></p>
             <div id="hiddenFields" style="display: none" >
             <p th:text="*{description}"></p>
             <p th:text="*{category}"></p>
