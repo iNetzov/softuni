@@ -13,4 +13,5 @@ public interface ProductService {
     void initProducts();
     List<ProductsAllViewModel> getAllProducts();
 
+    void deleteProduct(Long id);
 }

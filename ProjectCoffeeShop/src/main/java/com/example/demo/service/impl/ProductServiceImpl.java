@@ -10,6 +10,7 @@ import com.example.demo.service.ProductService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -90,6 +91,12 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<ProductsAllViewModel> getAllProducts() {
         return productRepository.findAll().stream().map(this::map).collect(Collectors.toList());
+    }
+
+    @Transactional
+    @Override
+    public void deleteProduct(Long id) {
+        productRepository.deleteById(id);
     }
 
     private ProductsAllViewModel map(ProductEntity offerEntity) {

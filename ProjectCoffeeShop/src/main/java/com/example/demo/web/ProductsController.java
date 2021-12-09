@@ -1,6 +1,8 @@
 package com.example.demo.web;
 
 import com.example.demo.models.binding.ProductAddBindingModel;
+import com.example.demo.models.binding.ProductDeleteBindingModel;
+import com.example.demo.models.entity.ProductEntity;
 import com.example.demo.models.service.ProductServiceModel;
 import com.example.demo.models.view.ProductsAllViewModel;
 import com.example.demo.service.ProductService;
@@ -8,10 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -74,6 +73,35 @@ public class ProductsController {
 
         return "products-all";
 
+    }
+    @GetMapping("/delete")
+    public String deleteProduct(Model model){
+        List<ProductsAllViewModel> allProducts = productService.getAllProducts();
+        model.addAttribute("allProducts",allProducts);
+        return "product-delete";
+    }
+    @ModelAttribute
+    public ProductDeleteBindingModel productDeleteBindingModel(){
+        return new ProductDeleteBindingModel();
+    }
+
+    @DeleteMapping("/delete")
+    public String deleteProductConfirm(@Valid ProductDeleteBindingModel productDeleteBindingModel,
+                                       BindingResult bindingResult,
+                                       RedirectAttributes redirectAttributes){
+        if (bindingResult.hasErrors()){
+            redirectAttributes
+                    .addFlashAttribute("productDeleteBindingModel",productDeleteBindingModel)
+                    .addFlashAttribute("org.springframework.validation.BindingResult.productDeleteBindingModel",bindingResult);
+
+            return "redirect:delete";
+        }
+        String productName = productDeleteBindingModel.getProductName();
+        ProductEntity product = productService.findByProductName(productName);
+        productService.deleteProduct(product.getId());
+
+
+        return "index";
     }
 
 
