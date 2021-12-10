@@ -24,4 +24,6 @@ public interface UserService {
 
 
     void updateUserRole(UserEntity user, RoleEntityNameEnum newRole);
+
+    List<UserEntity> findAllUsersEntity();
 }

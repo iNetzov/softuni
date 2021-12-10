@@ -134,6 +134,12 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
+    public List<UserEntity> findAllUsersEntity() {
+       return userRepository.findAll();
+
+    }
+
 
     private UserManageViewModel map(UserEntity user) {
         return this.modelMapper
