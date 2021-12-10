@@ -1,10 +1,13 @@
 package com.example.demo.web;
 
+import com.example.demo.models.binding.ManageUsersBindingModel;
 import com.example.demo.models.binding.ProfileEditBindingModel;
 import com.example.demo.models.binding.UserRegisterBindingModel;
 import com.example.demo.models.entity.UserEntity;
+import com.example.demo.models.entity.enums.RoleEntityNameEnum;
 import com.example.demo.models.service.UserServiceModel;
 import com.example.demo.models.view.UserEditProfileViewModel;
+import com.example.demo.models.view.UserManageViewModel;
 import com.example.demo.models.view.UserProfileViewModel;
 import com.example.demo.service.UserService;
 import org.modelmapper.ModelMapper;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/users")
@@ -149,6 +153,39 @@ public class UserController {
         userService.updateUser(currentUser.getId(),profileEditBindingModel.getFullName());
 
         return "index";
+    }
+
+    @GetMapping("/manage-users")
+    public String manageUser(Model model){
+        List<UserManageViewModel> allUsers = userService.findAllUsers();
+        model.addAttribute("allUsers",allUsers);
+
+        return "manage-users";
+    }
+
+    @ModelAttribute
+     public ManageUsersBindingModel manageUsersBindingModel(){
+        return new ManageUsersBindingModel();
+    }
+
+    @PostMapping("/manage-users")
+    public String manageUserConfirm(@Valid ManageUsersBindingModel manageUsersBindingModel,
+                                    BindingResult bindingResult,
+                                    RedirectAttributes redirectAttributes){
+        if (bindingResult.hasErrors()){
+
+            redirectAttributes
+                    .addFlashAttribute("manageUsersBindingModel",manageUsersBindingModel)
+                    .addFlashAttribute("org.springframework.validation.BindingResult.manageUsersBindingModel",bindingResult);
+
+            return "redirect:manage-users";
+        }
+        String username = manageUsersBindingModel.getUsername();
+        RoleEntityNameEnum newRole = manageUsersBindingModel.getRole();
+        UserEntity user = userService.findByUsername(username);
+        userService.updateUserRole(user,newRole);
+        return "index";
+
     }
 
 }
