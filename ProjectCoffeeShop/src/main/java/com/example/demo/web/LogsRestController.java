@@ -19,7 +19,7 @@ public class LogsRestController {
     }
 
 
-    @GetMapping("/logs")
+    @GetMapping("/logs/all")
     public ResponseEntity<List<LogsDTO>> getAllLogs(){
         List<LogsDTO>allLogs = logService.getAllLogs();
         return ResponseEntity.ok(allLogs);

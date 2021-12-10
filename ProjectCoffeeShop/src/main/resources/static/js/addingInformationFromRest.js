@@ -1,5 +1,5 @@
 
-const finalUrl =`http://localhost:8080/api/logs`;
+const finalUrl =`http://localhost:8080/api/logs/all`;
 let list = document.querySelector('#inputContainer');
 console.log("hi");
 
