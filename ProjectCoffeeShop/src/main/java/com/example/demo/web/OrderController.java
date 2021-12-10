@@ -29,15 +29,11 @@ import java.util.List;
 public class OrderController {
     private final ProductService productService;
     private final StoreService storeService;
-    private final ModelMapper modelMapper;
-    private final UserService userService;
     private final OrderService orderService;
 
-    public OrderController(ProductService productService, StoreService storeService, ModelMapper modelMapper, UserService userService, OrderService orderService) {
+    public OrderController(ProductService productService, StoreService storeService,OrderService orderService) {
         this.productService = productService;
         this.storeService = storeService;
-        this.modelMapper = modelMapper;
-        this.userService = userService;
         this.orderService = orderService;
     }
 

@@ -10,14 +10,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class StatsServiceImpl implements StatsService {
 
-    private int anonymousRequests, authRequests;
+    private int anonymousRequests;
+    private int authRequests;
 
     @Override
     public void onRequest() {
         Authentication authentication = SecurityContextHolder.
                 getContext().
                 getAuthentication();
-
 
 
         if (authentication != null && (authentication.getPrincipal() instanceof UserDetails)) {
@@ -29,6 +29,6 @@ public class StatsServiceImpl implements StatsService {
 
     @Override
     public StatsView getStats() {
-        return new StatsView (authRequests, anonymousRequests);
+        return new StatsView(authRequests, anonymousRequests);
     }
 }

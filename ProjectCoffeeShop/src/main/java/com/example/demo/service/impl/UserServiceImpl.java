@@ -141,6 +141,7 @@ public class UserServiceImpl implements UserService {
     }
 
 
+
     private UserManageViewModel map(UserEntity user) {
         return this.modelMapper
                 .map(user, UserManageViewModel.class);
