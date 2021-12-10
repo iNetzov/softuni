@@ -180,5 +180,12 @@ footer {
     height: 361px;
 }
 
+.marginLeftInput{
+    width: 100%;
+    margin-left: 10%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 /* Add some padding inside the card container */
 /*testing*/

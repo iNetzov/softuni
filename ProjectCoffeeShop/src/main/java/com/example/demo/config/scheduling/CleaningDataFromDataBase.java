@@ -11,12 +11,12 @@ import java.time.LocalDateTime;
 
 
 @Component
-public class CleaningDataFromOrders {
-    private static final Logger LOGGER = LoggerFactory.getLogger(CleaningDataFromOrders.class);
+public class CleaningDataFromDataBase {
+    private static final Logger LOGGER = LoggerFactory.getLogger(CleaningDataFromDataBase.class);
     private final OrderService orderService;
     private final LogService logService;
 
-    public CleaningDataFromOrders(OrderService orderService, LogService logService) {
+    public CleaningDataFromDataBase(OrderService orderService, LogService logService) {
         this.orderService = orderService;
         this.logService = logService;
     }
@@ -27,7 +27,7 @@ public class CleaningDataFromOrders {
 
         LOGGER.info("Data transfer from orders --> logs at: {}", LocalDateTime.now());
     }
-
+// Every 5Th min delete Log information
     @Scheduled(fixedRate = 300000)
     public void ShowTimeWithFixedRate(){
         logService.clear();
