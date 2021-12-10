@@ -1,16 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
->
-
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="fragments/fragments::head"></head>
-
-
 <body>
+<!--Custome Navigation on user Authorize-->
+<th:block sec:authorize="hasRole('ADMIN')">
+    <header th:replace="fragments/fragments::navigation-admin"></header>
+</th:block>
+<!--Custome Navigation on user Authorize-->
 
-<div th:replace="fragments/fragments::navigation">
-    Navbar
-</div>
 
 
 <div class="container-fluid">

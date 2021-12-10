@@ -1,9 +1,14 @@
+<!doctype html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
-
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="fragments/fragments::head"></head>
 <body>
-<div class="wrapper"><header  th:replace="fragments/fragments::navigation" ></header></div>
+<!--Custome Navigation on user Authorize-->
+<th:block sec:authorize="hasRole('ADMIN')">
+    <header th:replace="fragments/fragments::navigation-admin"></header>
+</th:block>
+
 <div class="container text-light position-static ">
     <h1 class="display-3 text-center"><b>ORDER LOGS</b></h1>
 </div>

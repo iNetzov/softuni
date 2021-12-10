@@ -1,9 +1,18 @@
 <!doctype html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="fragments/fragments::head"></head>
-<header th:replace="fragments/fragments::navigation"></header>
 <body>
+<!--Custome Navigation on user Authorize-->
+<th:block sec:authorize="hasRole('ADMIN')">
+<header th:replace="fragments/fragments::navigation-admin"></header>
+</th:block>
+<th:block sec:authorize="hasRole('MODERATOR')">
+    <header th:replace="fragments/fragments::navigation-moderator"></header>
+</th:block>
+<!--Custome Navigation on user Authorize-->
+
 <div class="container text-light position-static">
     <h1 class="display-3 text-center"><b>ADD PRODUCT</b></h1>
 </div>
