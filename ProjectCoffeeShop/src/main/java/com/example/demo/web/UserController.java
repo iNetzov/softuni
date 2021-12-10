@@ -185,7 +185,7 @@ public class UserController {
         RoleEntityNameEnum newRole = manageUsersBindingModel.getRole();
         UserEntity user = userService.findByUsername(username);
         userService.updateUserRole(user,newRole);
-        return "index";
+        return "index-AdminPanel";
 
     }
 
