@@ -40,7 +40,7 @@ public class ApplicationSpringSecurityConfiguration extends WebSecurityConfigure
                 .authorizeRequests()
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                 .antMatchers("/","/users/register","/users/login","/about","/products/all").permitAll()
-                .antMatchers("/api/logs").denyAll()
+                .antMatchers("/api/logs","/api/users/manage-users").denyAll()
                 .antMatchers("/panel/admin","/statistics","/logs","/users/manage-users").hasRole(RoleEntityNameEnum.ADMIN.name())
                 .antMatchers("/panel/moderator").hasRole(RoleEntityNameEnum.MODERATOR.name())
                 .antMatchers("/stores/add","/products/add","/products/delete","stores/delete").hasAnyRole(RoleEntityNameEnum.ADMIN.name(),RoleEntityNameEnum.MODERATOR.name())
