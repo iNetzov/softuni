@@ -17,6 +17,6 @@ public class testController {
     @GetMapping("/test")
     public String testSometing(){
 //      orderService.moveToLogs();
-      return "log-all";
+      return "manage-users";
     }
 }
