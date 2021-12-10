@@ -24,7 +24,6 @@ public class ManageUsersBindingModel {
 
 
     @NotNull
-    @Size(min = 1)
     public RoleEntityNameEnum getRole() {
         return role;
     }
