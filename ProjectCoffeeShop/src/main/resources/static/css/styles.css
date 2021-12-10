@@ -186,6 +186,10 @@ footer {
     margin-bottom: 20px;
     text-align: center;
 }
+.resizeButtonsError{
+
+    margin: auto;
+}
 
 /* Add some padding inside the card container */
 /*testing*/
