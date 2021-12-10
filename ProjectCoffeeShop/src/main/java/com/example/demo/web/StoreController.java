@@ -1,6 +1,7 @@
 package com.example.demo.web;
 
 import com.example.demo.models.binding.StoreAddBindingModel;
+import com.example.demo.models.binding.StoresDeleteBindingModel;
 import com.example.demo.models.entity.StoreEntity;
 import com.example.demo.models.service.StoreServiceModel;
 import com.example.demo.models.view.StoresAllViewModel;
@@ -10,10 +11,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -75,6 +73,41 @@ public class StoreController {
         model.addAttribute("allStores",allStores);
 
         return "store-all";
+        }
+
+        @GetMapping("/delete")
+    public String deleteStore(Model model){
+        List<StoresAllViewModel> allStores =storeService.getAllStores();
+        model.addAttribute("allStores",allStores);
+        return "stores-delete";
+        }
+
+
+        @ModelAttribute
+        public StoresDeleteBindingModel storesDeleteBindingModel(){
+        return new StoresDeleteBindingModel();
+        }
+
+
+        @DeleteMapping("/delete")
+    public String deleteStoreConfirm(@Valid StoresDeleteBindingModel storesDeleteBindingModel,
+                                     BindingResult bindingResult,
+                                     RedirectAttributes redirectAttributes){
+
+        if (bindingResult.hasErrors()){
+
+            redirectAttributes.addFlashAttribute("storesDeleteBindingModel",storesDeleteBindingModel)
+                    .addFlashAttribute("org.springframework.validation.BindingResult.storesDeleteBindingModel",bindingResult);
+            return "redirect:delete";
+        }
+            StoreServiceModel map = modelMapper.map(storesDeleteBindingModel, StoreServiceModel.class);
+            String storeName = map.getName();
+            StoreEntity store = storeService.findByName(storeName);
+            storeService.deleteStore(store.getId());
+
+
+
+            return "index";
         }
 
 

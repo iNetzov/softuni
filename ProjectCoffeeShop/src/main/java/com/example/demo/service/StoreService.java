@@ -13,4 +13,6 @@ public interface StoreService {
     void initStores();
 
     List<StoresAllViewModel> getAllStores();
+
+    void deleteStore(Long id);
 }

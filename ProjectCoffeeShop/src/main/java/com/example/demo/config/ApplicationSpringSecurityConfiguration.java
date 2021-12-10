@@ -55,8 +55,9 @@ public class ApplicationSpringSecurityConfiguration extends WebSecurityConfigure
                 .logout()
                 .logoutUrl("/users/logout")
                 .logoutSuccessUrl("/")
-                .invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID");
+                .deleteCookies("JSESSIONID")
+                .invalidateHttpSession(true);
+
 
 
     }

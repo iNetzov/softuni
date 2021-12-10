@@ -10,6 +10,7 @@ import com.example.demo.service.StoreService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -77,6 +78,13 @@ public class StoreServiceImpl implements StoreService {
                .map(this::map)
                .collect(Collectors.toList());
     }
+
+    @Transactional
+    @Override
+    public void deleteStore(Long id) {
+        storeRepository.deleteById(id);
+    }
+
     private StoresAllViewModel map(StoreEntity storeEntity) {
         StoresAllViewModel view = this.modelMapper
                 .map(storeEntity, StoresAllViewModel.class);

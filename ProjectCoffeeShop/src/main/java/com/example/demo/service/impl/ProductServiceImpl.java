@@ -99,6 +99,8 @@ public class ProductServiceImpl implements ProductService {
         productRepository.deleteById(id);
     }
 
+
+
     private ProductsAllViewModel map(ProductEntity offerEntity) {
         ProductsAllViewModel view = this.modelMapper
                 .map(offerEntity, ProductsAllViewModel.class);
