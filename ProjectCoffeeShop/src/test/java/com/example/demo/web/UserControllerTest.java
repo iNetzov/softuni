@@ -37,21 +37,23 @@ public class UserControllerTest {
 
     @WithMockUser(roles = "ADMIN")
     @Test
-    public  void testUserManageSystemWithAdmin() throws Exception {
+    public void testUserManageSystemWithAdmin() throws Exception {
         this.mockMvc
                 .perform(get("/users/manage-users"))
                 .andExpect(view().name("manage-users"));
     }
+
     @WithMockUser(roles = "MODERATOR")
     @Test
-    public  void testUserManageSystemWithModerator() throws Exception {
+    public void testUserManageSystemWithModerator() throws Exception {
         this.mockMvc
                 .perform(get("/users/manage-users"))
                 .andExpect(status().isForbidden());
     }
+
     @WithMockUser(roles = "USER")
     @Test
-    public  void testUserManageSystemWithUSER() throws Exception {
+    public void testUserManageSystemWithUSER() throws Exception {
         this.mockMvc
                 .perform(get("/users/manage-users"))
                 .andExpect(status().isForbidden());

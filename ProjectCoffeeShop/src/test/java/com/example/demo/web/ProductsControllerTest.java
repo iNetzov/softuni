@@ -35,6 +35,7 @@ public class ProductsControllerTest {
                 .perform(get("/products/add"))
                 .andExpect(view().name("products-add"));
     }
+
     @WithMockUser(roles = "MODERATOR")
     @Test
     public void testAddPageMODERATOR() throws Exception {
@@ -42,6 +43,7 @@ public class ProductsControllerTest {
                 .perform(get("/products/add"))
                 .andExpect(view().name("products-add"));
     }
+
     @WithMockUser(roles = "USER")
     @Test
     public void testAddPageUSER() throws Exception {
@@ -73,7 +75,6 @@ public class ProductsControllerTest {
                 .perform(get("/products/delete"))
                 .andExpect(view().name("product-delete"));
     }
-
 
 
 }

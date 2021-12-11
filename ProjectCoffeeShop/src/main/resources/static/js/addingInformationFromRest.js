@@ -7,10 +7,10 @@ console.log("hi");
 fetch(finalUrl)
                 .then(responce => responce.json())
                         .then(rep=>{
-                            for (const r of rep) {
+                            for (const l of rep) {
                                 let li = document.createElement('li');
                                 let a = document.createElement('a');
-                                a.textContent =`Client: ${r.clientName} -- Order Id: ${r.orderId} -- Done: ${r.done} --Product: ${r.productName} -- Store: ${r.storeName}`;
+                                a.textContent =`Client: ${l.clientName} -- Order Id: ${l.orderId} -- Done: ${l.done} --Product: ${l.productName} -- Store: ${l.storeName}`;
                                 li.classList.add('form-control', 'marginLeftInput');
                                  li.appendChild(a);
                                  list.appendChild(li);

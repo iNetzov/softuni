@@ -29,6 +29,7 @@ public class StatControllerTest {
                 .perform(get("/statistics"))
                 .andExpect(view().name("stats"));
     }
+
     @WithMockUser(roles = "MODERATOR")
     @Test
     public void testAddPageMODERATOR() throws Exception {
@@ -36,6 +37,7 @@ public class StatControllerTest {
                 .perform(get("/statistics"))
                 .andExpect(status().isForbidden());
     }
+
     @WithMockUser(roles = "USER")
     @Test
     public void testAddPageUSER() throws Exception {

@@ -24,7 +24,7 @@ public class StoreControllerTest {
 
     @WithMockUser(roles = "ADMIN")
     @Test
-    public  void testStoresAddWithAdmin() throws Exception {
+    public void testStoresAddWithAdmin() throws Exception {
         this.mockMvc
                 .perform(get("/stores/add"))
                 .andExpect(view().name("stores-add"));
@@ -33,7 +33,7 @@ public class StoreControllerTest {
 
     @WithMockUser(roles = "MODERATOR")
     @Test
-    public  void testStoresAddWithModerator() throws Exception {
+    public void testStoresAddWithModerator() throws Exception {
         this.mockMvc
                 .perform(get("/stores/add"))
                 .andExpect(view().name("stores-add"));
@@ -41,7 +41,7 @@ public class StoreControllerTest {
 
     @WithMockUser(roles = "USER")
     @Test
-    public  void testStoresAddWithUser() throws Exception {
+    public void testStoresAddWithUser() throws Exception {
         this.mockMvc
                 .perform(get("/stores/add"))
                 .andExpect(status().isForbidden());
@@ -49,21 +49,15 @@ public class StoreControllerTest {
 
     @WithMockUser(roles = "USER")
     @Test
-    public  void testStoresAllWith() throws Exception {
+    public void testStoresAllWith() throws Exception {
         this.mockMvc
                 .perform(get("/stores/all"))
                 .andExpect(view().name("store-all"));
     }
+
     @WithMockUser(roles = "ADMIN")
     @Test
-    public  void testStoresAllWithAdmin() throws Exception {
-        this.mockMvc
-                .perform(get("/stores/all"))
-                .andExpect(view().name("store-all"));
-    }
-    @WithMockUser(roles = "MODERATOR")
-    @Test
-    public  void testStoresAllWithModerator() throws Exception {
+    public void testStoresAllWithAdmin() throws Exception {
         this.mockMvc
                 .perform(get("/stores/all"))
                 .andExpect(view().name("store-all"));
@@ -71,7 +65,15 @@ public class StoreControllerTest {
 
     @WithMockUser(roles = "MODERATOR")
     @Test
-    public  void testDeleteWithModerator() throws Exception {
+    public void testStoresAllWithModerator() throws Exception {
+        this.mockMvc
+                .perform(get("/stores/all"))
+                .andExpect(view().name("store-all"));
+    }
+
+    @WithMockUser(roles = "MODERATOR")
+    @Test
+    public void testDeleteWithModerator() throws Exception {
         this.mockMvc
                 .perform(get("/stores/delete"))
                 .andExpect(view().name("stores-delete"));
@@ -79,7 +81,7 @@ public class StoreControllerTest {
 
     @WithMockUser(roles = "ADMIN")
     @Test
-    public  void testDeleteWithAdmin() throws Exception {
+    public void testDeleteWithAdmin() throws Exception {
         this.mockMvc
                 .perform(get("/stores/delete"))
                 .andExpect(view().name("stores-delete"));
@@ -87,7 +89,7 @@ public class StoreControllerTest {
 
     @WithMockUser(roles = "USER")
     @Test
-    public  void testDeleteWithUser() throws Exception {
+    public void testDeleteWithUser() throws Exception {
         this.mockMvc
                 .perform(get("/stores/delete"))
                 .andExpect(status().isForbidden());

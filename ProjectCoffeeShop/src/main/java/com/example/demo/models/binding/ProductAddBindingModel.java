@@ -26,6 +26,7 @@ public class ProductAddBindingModel {
     public void setName(String name) {
         this.name = name;
     }
+
     @Positive
     @NotNull
     public BigDecimal getPrice() {
@@ -35,6 +36,7 @@ public class ProductAddBindingModel {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
+
     @Size(min = 15)
     @NotNull
     public String getDescription() {

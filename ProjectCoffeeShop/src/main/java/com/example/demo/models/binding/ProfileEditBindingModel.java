@@ -10,7 +10,7 @@ public class ProfileEditBindingModel {
     }
 
     @NotNull
-    @Size(min = 3,max = 20)
+    @Size(min = 10,max = 50)
     public String getFullName() {
         return fullName;
     }
