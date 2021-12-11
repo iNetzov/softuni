@@ -66,7 +66,7 @@ public class OrderController {
         String username = userDetails.getUsername();
         OrderServiceModel order = orderService.createOrderServiceModel(username,product,store);
         orderService.addOrder(order);
-        return "index";
+        return "afterOrder";
     }
 
 
