@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class LogController {
 
 
-    @GetMapping("logs")
+    @GetMapping("/logs")
     public String logs(){
         return "log-all";
     }
