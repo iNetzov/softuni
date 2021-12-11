@@ -10,51 +10,45 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
 @AutoConfigureMockMvc
-public class UserControllerTest {
+public class OrderControllerTest {
 
     @Autowired
     protected MockMvc mockMvc;
 
-    @Test
-    public void testLoginShouldReturnCorrectPage() throws Exception {
-        this.mockMvc
-                .perform(get("/users/login"))
-                .andExpect(view().name("login"));
-    }
-
-    @Test
-    public void testRegisterShouldReturnCorrectPage() throws Exception {
-        this.mockMvc
-                .perform(get("/users/register"))
-                .andExpect(view().name("register"));
-    }
 
     @WithMockUser(roles = "ADMIN")
     @Test
-    public  void testUserManageSystemWithAdmin() throws Exception {
+    public void testOrderFormWithADMIN() throws Exception {
         this.mockMvc
-                .perform(get("/users/manage-users"))
-                .andExpect(view().name("manage-users"));
+                .perform(get("/orders/add"))
+                .andExpect(view().name("order-add"));
     }
+
     @WithMockUser(roles = "MODERATOR")
     @Test
-    public  void testUserManageSystemWithModerator() throws Exception {
+    public void testOrderFormWithMODERATOR() throws Exception {
         this.mockMvc
-                .perform(get("/users/manage-users"))
-                .andExpect(status().isForbidden());
+                .perform(get("/orders/add"))
+                .andExpect(view().name("order-add"));
     }
+
     @WithMockUser(roles = "USER")
     @Test
-    public  void testUserManageSystemWithUSER() throws Exception {
+    public void testOrderFormWithUSER() throws Exception {
         this.mockMvc
-                .perform(get("/users/manage-users"))
-                .andExpect(status().isForbidden());
+                .perform(get("/orders/add"))
+                .andExpect(view().name("order-add"));
     }
+
+
+
+
 
 }

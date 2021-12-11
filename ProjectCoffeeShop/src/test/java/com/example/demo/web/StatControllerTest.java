@@ -16,45 +16,31 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @RunWith(SpringRunner.class)
 @AutoConfigureMockMvc
-public class UserControllerTest {
+public class StatControllerTest {
 
     @Autowired
     protected MockMvc mockMvc;
 
-    @Test
-    public void testLoginShouldReturnCorrectPage() throws Exception {
-        this.mockMvc
-                .perform(get("/users/login"))
-                .andExpect(view().name("login"));
-    }
-
-    @Test
-    public void testRegisterShouldReturnCorrectPage() throws Exception {
-        this.mockMvc
-                .perform(get("/users/register"))
-                .andExpect(view().name("register"));
-    }
 
     @WithMockUser(roles = "ADMIN")
     @Test
-    public  void testUserManageSystemWithAdmin() throws Exception {
+    public void testStatPageADMIN() throws Exception {
         this.mockMvc
-                .perform(get("/users/manage-users"))
-                .andExpect(view().name("manage-users"));
+                .perform(get("/statistics"))
+                .andExpect(view().name("stats"));
     }
     @WithMockUser(roles = "MODERATOR")
     @Test
-    public  void testUserManageSystemWithModerator() throws Exception {
+    public void testAddPageMODERATOR() throws Exception {
         this.mockMvc
-                .perform(get("/users/manage-users"))
+                .perform(get("/statistics"))
                 .andExpect(status().isForbidden());
     }
     @WithMockUser(roles = "USER")
     @Test
-    public  void testUserManageSystemWithUSER() throws Exception {
+    public void testAddPageUSER() throws Exception {
         this.mockMvc
-                .perform(get("/users/manage-users"))
+                .perform(get("/statistics"))
                 .andExpect(status().isForbidden());
     }
-
 }
