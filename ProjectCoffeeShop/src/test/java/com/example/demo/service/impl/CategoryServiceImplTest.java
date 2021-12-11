@@ -9,8 +9,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.List;
 import java.util.Optional;
 
 @ExtendWith(MockitoExtension.class)
@@ -32,7 +34,10 @@ public class CategoryServiceImplTest {
         mockUserRepository.save(category);
     }
 
-
+    @Test
+    void initCategories(){
+        serviceToTest.initCategories();
+    }
 
     @Test
     void CategoryFindByNameNOTFOUND(){
@@ -43,7 +48,24 @@ public class CategoryServiceImplTest {
         Assertions.assertNull(actual);
     }
 
+    @Test
+    void CategoryFindByNameFound(){
+        Mockito.when(mockUserRepository.findByName(CategoryEntityNameEnum.DRINK)).thenReturn(Optional.of(this.category));
+        CategoryEntity expected = category;
+        CategoryEntity actual = serviceToTest.findByCategoryNameEnum(CategoryEntityNameEnum.DRINK);
+
+        Assertions.assertEquals(actual,expected);
+    }
+    @Test
+    public void testInitDb() {
+        Mockito.when(mockUserRepository.findAll()).thenReturn(List.of(category));
+
+        serviceToTest = new CategoryServiceImpl(this.mockUserRepository);
+        serviceToTest.initCategories();
+
+        Assertions.assertEquals(1, this.mockUserRepository.findAll().size());
 
 
+    }
 
 }
