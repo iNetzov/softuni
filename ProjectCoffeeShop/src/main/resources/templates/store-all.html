@@ -13,7 +13,7 @@
 <div id="containerForStores">
     <div  th:each="s : ${allStores}" th:object="${s}" class="card text-light text-center" style="display: inline-block">
         <div  class="container">
-            <img th:src="*{getUrl()}"  class=" resizePhoto " alt="Avatar" >
+            <img th:src="*{getUrl()}"  class=" resizePhoto " alt="Store" >
             <h3 th:text="*{name}"><b>name</b></h3>
             <div id="hiddenFields" style="display: none" >
                 <p th:text="*{address}"></p>

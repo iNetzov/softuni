@@ -99,8 +99,6 @@ public class ProductsController {
         String productName = productDeleteBindingModel.getProductName();
         ProductEntity product = productService.findByProductName(productName);
         productService.deleteProduct(product.getId());
-
-
         return "index";
     }
 
