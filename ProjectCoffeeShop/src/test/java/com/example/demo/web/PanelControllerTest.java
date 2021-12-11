@@ -16,44 +16,59 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @RunWith(SpringRunner.class)
 @AutoConfigureMockMvc
-public class UserControllerTest {
+public class PanelControllerTest {
 
     @Autowired
     protected MockMvc mockMvc;
 
-    @Test
-    public void testLoginShouldReturnCorrectPage() throws Exception {
-        this.mockMvc
-                .perform(get("/users/login"))
-                .andExpect(view().name("login"));
-    }
-
-    @Test
-    public void testRegisterShouldReturnCorrectPage() throws Exception {
-        this.mockMvc
-                .perform(get("/users/register"))
-                .andExpect(view().name("register"));
-    }
 
     @WithMockUser(roles = "ADMIN")
     @Test
-    public  void testUserManageSystemWithAdmin() throws Exception {
+    public void testWithAdminAdminPanel() throws Exception {
         this.mockMvc
-                .perform(get("/users/manage-users"))
-                .andExpect(view().name("manage-users"));
+                .perform(get("/panel/admin"))
+                .andExpect(view().name("index-AdminPanel"));
     }
+
+
     @WithMockUser(roles = "MODERATOR")
     @Test
-    public  void testUserManageSystemWithModerator() throws Exception {
+    public void testWithModeratorAdminPanel() throws Exception {
         this.mockMvc
-                .perform(get("/users/manage-users"))
+                .perform(get("/panel/admin"))
                 .andExpect(status().isForbidden());
     }
+
+
     @WithMockUser(roles = "USER")
     @Test
-    public  void testUserManageSystemWithUSER() throws Exception {
+    public void testWithUserAdminPanel() throws Exception {
         this.mockMvc
-                .perform(get("/users/manage-users"))
+                .perform(get("/panel/admin"))
+                .andExpect(status().isForbidden());
+    }
+
+    @WithMockUser(roles = "USER")
+    @Test
+    public void testWithAdminModeratorPanel() throws Exception {
+        this.mockMvc
+                .perform(get("/panel/moderator"))
+                .andExpect(status().isForbidden());
+    }
+
+    @WithMockUser(roles = "MODERATOR")
+    @Test
+    public void testWithMODERATORModeratorPanel() throws Exception {
+        this.mockMvc
+                .perform(get("/panel/moderator"))
+                .andExpect(view().name("index-ModeratorPanel"));
+    }
+
+    @WithMockUser(roles = "USER")
+    @Test
+    public void testUSERModeratorPanel() throws Exception {
+        this.mockMvc
+                .perform(get("/panel/moderator"))
                 .andExpect(status().isForbidden());
     }
 
