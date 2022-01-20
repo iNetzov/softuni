@@ -3,7 +3,7 @@
  The following technologies have been used to create web application: JAVA, HTML, CSS, vanilla JS, mySQL, Spring, Spring Boot, Hibernate, Thymeleaf, Bootstrap.
 
 ### Behind the project:
-The project is created as a school project for SoftUni.
+The project is created as a school assignment for SoftUni.
 The main business idea of the project is to create an online shop that sells coffee and other products, some sort of a Barista Store.
 The application is created with **Spring Boot**, so the server the application is hosted on is **TomCat**. For the database of the application, i have used **MySQL**, because it is free to use and it scales well as a relational database. The front-end is created with **Thymeleaf** engine in combination with **HTML** **CSS**, **vanilla JS** for some dynamic elements on the web pages.
 ### Main functionality 
