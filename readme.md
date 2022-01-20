@@ -6,7 +6,7 @@
 The project is created as a school project for SoftUni.
 The main business idea of the project is to create an online shop that sells coffee and other products, some sort of a Barista Store.
 The application is created with **Spring Boot**, so the server the application is hosted on is **TomCat**. For the database of the application, i have used **MySQL**, because it is free to use and it scales well as a relational database. The front-end is created with **Thymeleaf** engine in combination with **HTML** **CSS**, **vanilla JS** for some dynamic elements on the web pages.
-### main functionality 
+### Main functionality 
 The project follows the concept of MVC architecture.
 As I have said earlier the main goal of this application is to sell products from different stores. The application provides **login/registration** pages where users can register themselves and receive different benefits. The access to pages is provided by Spring Security it also manages threads like **SQL injection and DDoS attacks.** The application provides the user with **3 levels of accessibility**
 The **non-logged user** can only browse products.
