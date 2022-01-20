@@ -12,7 +12,7 @@ As I have said earlier the main goal of this application is to sell products fro
 The **non-logged user** can only browse products.
 The **logged user** can see all products, stores and can make orders.
 The **moderator** is a special user who is more like a worker in the stores. He can **add** and **remove** products and stores he has a **moderator panel** that is visible only to him and other moderators.
-The **Admin** is the user with the biggest value for the store he is the owner of the website. He can see a special web page called **admin panel** where he has functionality like **checking done orders**, **viewing statistics**, and even **managing other users roles**, he can both **promote and demote a certain user if needed**.
+The **Admin** is the user with the biggest value for the store he is the owner of the website. He can see a special web page called **admin panel** where he has functionalities like **checking done orders**, **viewing statistics**, and even **managing other users roles**, he can both **promote and demote a certain user if needed**.
 
 ##
 
