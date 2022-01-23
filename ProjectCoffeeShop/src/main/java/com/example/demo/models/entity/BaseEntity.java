@@ -6,10 +6,10 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public class BaseEntity {
+public abstract class BaseEntity {
     private Long id;
 
-    public BaseEntity() {
+    protected BaseEntity() {
     }
 
     @Id
