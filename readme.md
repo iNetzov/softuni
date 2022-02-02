@@ -1,4 +1,4 @@
-# Information about the web project
+# Information about the web project.
 ## technologies stack:
  The following technologies have been used to create web application: JAVA, HTML, CSS, vanilla JS, mySQL, Spring, Spring Boot, Hibernate, Thymeleaf, Bootstrap.
 
