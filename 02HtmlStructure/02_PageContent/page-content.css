@@ -1,0 +1,16 @@
+body{
+    background-color: grey;
+}
+
+section{
+    padding-left: 20px;
+}
+article>header>h1{
+    font-size: 28px;
+}
+article>header>em{
+    font-style: italic;
+}
+p{
+    font-size: 20px;
+}
