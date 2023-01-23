@@ -1,1 +1,19 @@
-/* TODO: style the html */
+@font-face {
+    font-family: Monstrrat;
+    src: url('https://fonts.googleapis.com/css?family=Montserrat');
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Monstrrat','Courier New', Courier, monospace;
+}
+table th {
+    background-color: lightblue;
+}
+th,td {
+    width: 144px;
+    height: 32px;
+    border: 1px solid #ccc;
+    padding-left: 5px;
+}
+

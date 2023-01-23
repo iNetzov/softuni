@@ -1,0 +1,30 @@
+html{
+    cursor: none;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: antiquewhite;
+    
+}
+button, a{
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: antiquewhite;
+    padding: 8px;
+    margin: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+.fill{
+    background-color: black;
+    color: white;
+}
+.to-hover:hover{
+    color: green;
+    background-color: white;
+    border: 1px solid green;
+}
+.fill:hover{
+    color:white;
+    background-color: green;
+}

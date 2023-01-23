@@ -1,0 +1,15 @@
+@font-face {
+    font-family: Explora;
+    src: url("./fonts/Explora-Regular.ttf");
+}
+
+body{
+    font-size: 16px;
+    line-height: 1.5em;
+    font-family: Raleway,sans-serif;
+}
+h2{
+font-family: Explora,sans-serif;
+font-size: 35px;
+font-weight: bold;
+}

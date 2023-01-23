@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'test';
+    src: url('../03-css-typography/font-family-from-google/ArchitectsDaughter-Regular.ttf');
+}
+
+
+h1{
+    color: blue;
+}
+
+h1{
+    color: green;
+}
+
+h1{
+    color: red;
+}
+
+
+/* because # is stronger then .class */
+h2#test{
+    color: rebeccapurple;
+ }
+
+h2.test{
+    color: violet;
+ }
+/* because # is stronger then .class */
+
+ p{
+    font-family: 'test';
+    font-size: 24px;
+ }
+ i{
+    color: pink;
+ }
