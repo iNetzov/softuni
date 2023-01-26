@@ -1,1 +1,26 @@
-/* TODO: style the html */
+a {
+    text-decoration: none;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin: 15px;
+    padding: 10px;
+    background-color: aqua;
+    width: 150px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+i {
+    padding: 5px;
+}
+
+.orange {
+    background-color: orange;
+    
+}
+
+.green {
+    background-color: green;
+}
