@@ -1,1 +1,21 @@
-/* TODO: style the html */
+li {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    line-height: 1.5rem;
+}
+ul{
+    list-style: none;
+}
+ul.check i{
+    color: green;
+    font-size: 25px;
+}
+ul.star i{
+    font-size: 25px;
+    color: gold;
+}
+ul.contact i{
+    font-size: 25px;
+    color: blue;
+
+}

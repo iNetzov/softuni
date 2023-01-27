@@ -1,0 +1,17 @@
+main{
+    padding:25px;
+    font-family: Helvetica, sans-serif;
+    line-height: 1.5rem;
+    font-size: 16px;
+}
+section.headers, section header{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+table tr.header{
+    background-color: grey;
+}
+table td {
+   border-left: 2px solid black;
+   border-spacing: 0;
+}
