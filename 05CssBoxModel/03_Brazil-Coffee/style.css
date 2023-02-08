@@ -1,0 +1,27 @@
+section{
+    width: 451px;
+    height: 540px;
+    border: solid 8px gray;
+    padding: 15px;
+}
+section img {
+    width: 390px;
+    padding: 10px;
+    padding-right: 20px;
+}
+
+p.fake-button{
+    background-color: red;
+    display: inline-block;
+    padding: 5px 20px;
+    border: solid 2px black;
+    border-radius: 5px;
+    color: whitesmoke;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 1.2rem 0rem;
+}

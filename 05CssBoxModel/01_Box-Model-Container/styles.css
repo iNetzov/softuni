@@ -1,1 +1,17 @@
-/* TODO: style the html */
+body {
+    background-color: grey;
+}
+
+section p {
+    box-sizing: border-box;
+    background-color: blue;
+    width: 300px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 15px;
+    border: solid 2px white;
+    color: whitesmoke;
+    margin: 20px;
+    padding: 20px;
+}
