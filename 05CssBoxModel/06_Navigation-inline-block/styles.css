@@ -1,0 +1,20 @@
+body{
+    margin: 30px;
+}
+h2.nav{
+    display: inline-block;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 24px;
+}
+ul.nav, ul.nav li.nav{
+    display: inline-block;
+}
+ul.nav li.nav {
+    padding-left: 25px;
+    color:green;
+}
+nav {
+    border-bottom: 4px solid rgba(0, 0, 0, 0.5);
+    /* border-bottom: 4px solid ; */
+    
+}
