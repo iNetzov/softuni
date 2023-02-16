@@ -1,0 +1,29 @@
+.color1{
+    background-color: grey;
+}
+.color2 {
+    background-color: pink;
+}
+.viewport{
+    display:block;
+    position: relative;
+
+}
+
+.card {
+    display: block;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+}
+.card img {
+    /* position: absolute; */
+}
+
+.icon {
+    color: purple   ;
+    position: absolute;
+    bottom: 20px;
+    left: 450px;
+}
