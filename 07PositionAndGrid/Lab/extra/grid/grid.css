@@ -1,0 +1,8 @@
+.cards{
+    display: grid;
+    /* repeat(how much, how big) */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 200px);
+    /* gap: 5px 32px; */
+
+}

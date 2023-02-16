@@ -1,0 +1,67 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightblue;
+    padding: 12px;
+}
+
+.container{
+    position: relative;
+    border: 2px dashed red;
+    height: 50px;
+}
+
+.item {
+    width: 80px;
+    height: 80px;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 6px;
+    border: 2px solid black;
+}
+.el1{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: lightcoral;
+    z-index: 10;
+}
+
+.el2{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background-color: greenyellow;
+}
+.el3{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    background-color:goldenrod;
+    z-index: 20;
+}
+.el4{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    background-color:brown;
+    z-index: 100;
+}
+
+.el5{
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    background-color:pink;
+    z-index: 30;
+}
+.el6{
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    background-color:purple;
+    z-index: 30;
+}
