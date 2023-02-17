@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 15vw;
+    height: 35rem;
+}
+p{
+    display: inline;
+    border: 1px solid black;
+    font-family:Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+.container:nth-child(3){
+    background-color: blue;
+
+}
