@@ -1,0 +1,169 @@
+:root {
+    --page-bg: #efefef;
+    --grey-dark: #909090;
+    --grey-title: #222222;
+}
+
+/* GLOBAL STYLES */
+body {
+    font-family: 'Raleway', sans-serif;
+    padding: 20px;
+    color: var(--grey-title);
+}
+section {
+    margin: 2rem;
+}
+.page-section {
+    max-width: 1880px;
+    margin-top: 1.5rem auto;
+    background-color: var(--page-bg);
+    height: calc(100vh - 1.5px);
+    padding: 3rem 6rem;
+    overflow: hidden;
+
+   
+}
+.section-flexed {
+    display: flex;
+    /* gap: 2rem; */
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+.page-section .title {
+    font-size: 3rem;
+    font-weight: normal;
+    margin-bottom: 2.5rem;
+}
+.page-section .desc {
+    font-style: italic;
+    font-weight: normal;
+    margin-bottom: 2rem;
+}
+.page-section .divider.vertical {
+    height: 6rem;
+    width: 1px;
+    background-color: var(--grey-title);
+
+}
+.page-section .section-info{
+    flex:0 0 50%;
+}
+.page-section .section-img .camera-img{
+    flex: 0 0  15%;
+}
+/* HERO */
+
+#hero.page-section{
+    position: relative;
+}
+#hero .navigation {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+}
+#hero .hero-img{
+    position: absolute;
+    bottom: 0px;
+    right: 5rem;
+    width: 50%;
+}
+/* Camera */
+
+#camera .socials {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+#camera .socials .social {
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--grey-dark);
+    color: white;
+    position: relative;
+}
+
+#camera .socials .social i {
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+/* gallery */
+
+#gallery .list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap :1rem;
+}
+
+#gallery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#gallery .list .picture:nth-child(2) {
+    transform: scale(1.5);
+    /* z-index: 1; */
+}
+
+#register{
+    display: flex;
+}
+
+#register div.gegister-form {
+    justify-content: center;
+}
+
+/* register form  */
+
+
+#contacts .form {
+max-width: 700px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: repeat(2,1fr);
+gap: 1.25rem;
+grid-template-areas: 
+"email subject"
+"msg msg"
+"submit submit";
+}
+#contacts .form input, #contacts .form textarea  {
+    background-color: transparent;
+    border: 1px solid var(--grey-title) ;
+    padding: 0.25rem;
+    width: 100%;
+}
+
+#contacts .form textarea{
+    resize: none;
+}
+#contacts .form .email {
+    grid-area: email;
+}
+
+#contacts .form .subject {
+    grid-area: subject;
+}
+#contacts .form .msg {
+    grid-area: msg;
+}
+#contacts .form .btn {
+    grid-area: submit;
+}
+
+#contacts .form .btn {
+    width: 100%;
+    padding: 0.5rem;
+    text-align: center;
+    border: 1px solid var(--grey-title);
+    background-color: var(--grey-title);
+    color: white;
+    font-weight: bold;
+}
+
+
+
