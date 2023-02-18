@@ -1,1 +1,42 @@
 /* TODO: Add the responsive styles here */
+
+@media (max-width: 600px){
+
+   
+   .w3-right.w3-hide-small .w3-button {
+    display: none;
+   }
+   .w3-xxlarge {
+    font-size: 42px;
+   }
+
+   .w3-round.w3-image.w3-opacity-min
+   {
+    width: 100%;
+   }
+   .w3-center {
+    width: 100%;
+   }
+   .w3-col.m6.w3-padding-large.w3-hide-small{
+    display: none;
+   }
+   .w3-col.m6 {
+    width: 100%;
+   }
+
+/* MENU */
+.w3-col.l6.w3-padding-large{
+    width: 100%;
+    display: block;
+}
+
+w3-col l6 w3-padding-large
+
+   /* .w3-col.l6.w3-padding-large{
+    display: none;
+   } */
+
+   /* #contact {
+    text-align: center;
+   } */
+}
