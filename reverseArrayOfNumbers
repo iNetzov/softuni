@@ -1,0 +1,8 @@
+function solve (counter, array){
+    
+    let newArray = array.slice(0,counter);
+    newArray  = newArray.reverse()
+    console.log(newArray.join(' '));
+}
+solve(3,[10,20,30,40,50,60]);
+solve(3,[20,30,40,50,60]);
