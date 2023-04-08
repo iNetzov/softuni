@@ -51,7 +51,7 @@ function solve() {
                 document.querySelector('#price').value = price;
                 document.querySelector('#update-product').disabled = false;
                let btn =  document.querySelector('#update-product')
-               btn.setAttribute('id',id);
+               btn.setAttribute('idPatch',id);
             document.querySelector('#add-product').disabled = true;
             })
 
@@ -105,11 +105,12 @@ function solve() {
     })
 
     updateButton.addEventListener('click',async(e)=> {
-        let neededId = e.target.id;
+        let neededId = e.target.getAttribute('idPatch');
+        console.log(neededId);
         let newProduct = document.querySelector('#product').value;
         let newCount = document.querySelector('#count').value;
         let newPrice = document.querySelector('#price').value;
-        let newObj ={product:newProduct,count:newCount,price:newPrice}
+        let newObj ={product:newProduct,count:newCount,price:newPrice,_id:neededId};
         // console.log(newObj);
         let config =  {
             method: 'PATCH',
@@ -124,6 +125,9 @@ function solve() {
         let data  =await response.json();
         console.log(data);
         document.querySelector('#load-product').click();
+        document.querySelector('#add-product').disabled = false;
+        document.querySelector('#update-product').disabled = true;
+
     })
 
 
