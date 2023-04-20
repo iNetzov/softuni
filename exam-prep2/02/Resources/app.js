@@ -110,6 +110,9 @@ function createCollection(container) {
 
     let buttonDelete = document.createElement('button');
     buttonDelete.textContent ='Delete';
+    buttonDelete.addEventListener('click',(t) =>{
+        t.target.parentNode.remove();
+    })
     buttonDelete.classList.add('delete-btn');
 
 
