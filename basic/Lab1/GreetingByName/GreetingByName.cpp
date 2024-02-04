@@ -12,7 +12,6 @@ namespace personalInfo {
 
 int main()
 {
-	string greeting = "Hello";
 	cin >> personalInfo::fName;
 	cout << "Hello, " << personalInfo::fName << "!" << endl;
 }
