@@ -36,3 +36,5 @@
 
 # to ignor the new x64 bin folder when run
 bin/
+# to ignor the new DEBUG folder when run
+Debug/
