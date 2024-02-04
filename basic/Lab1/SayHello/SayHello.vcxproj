@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{161f2918-bf20-4e9f-9979-3a95e8b3005a}</ProjectGuid>
-    <RootNamespace>SayHello</RootNamespace>
+    <ProjectGuid>{ab99fdf1-f925-4202-8174-5a84ac33dd30}</ProjectGuid>
+    <RootNamespace>sayHello</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="SayHello.cpp" />
+    <ClCompile Include="sayHello.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
