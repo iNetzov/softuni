@@ -1,20 +1,37 @@
-// PaintJob.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+using namespace std;
 
-int main()
-{
-    std::cout << "Hello World!\n";
+int main() {
+    // Цени на материалите
+    const double price_per_nylon = 1.50;  // лв. за кв. метър
+    const double price_per_paint = 14.50;  // лв. за литър
+    const double price_per_thinner = 5.00;  // лв. за литър
+    const double price_per_bag = 0.40;  // лв. за торбички
+    const double labor_percentage = 0.30;  // процент за труда на майсторите
+
+    // Входни данни
+    int nylon_sq_meters, paint_liters, thinner_liters, hours;
+    cin >> nylon_sq_meters >> paint_liters >> thinner_liters >> hours;
+
+    // Изчисления за материалите
+    double total_nylon_sq_meters = nylon_sq_meters + 2;  // добавяме 2 кв. метра
+    double total_paint_liters = paint_liters * 1.1;  // добавяме 10%
+    double total_bag_cost = price_per_bag;
+
+    // Общи разходи за материали
+    double total_material_cost = (total_nylon_sq_meters * price_per_nylon) +
+        (total_paint_liters * price_per_paint) +
+        (thinner_liters * price_per_thinner) +
+        total_bag_cost;
+
+    // Цена за час работа на майсторите
+    double hourly_labor_cost = total_material_cost * labor_percentage;
+
+    // Обща цена за ремонта
+    double total_cost = total_material_cost + (hourly_labor_cost * hours);
+
+    // Отпечатване на общата цена за ремонта
+    cout << total_cost << endl;
+
+    return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
