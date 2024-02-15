@@ -37,7 +37,7 @@ int main()
 
 	cout.setf(ios::fixed);
 	if (totalProfit - priceForVacation >= 0) {
-		cout << "Yes! " <<setprecision(2) << totalProfit - priceForVacation << " lv left.";
+		cout << "Yes! " << setprecision(2) << totalProfit - priceForVacation << " lv left.";
 	}
 	else {
 		cout << "Not enough money! " << setprecision(2) << priceForVacation - totalProfit << " lv needed." << endl;
