@@ -1,20 +1,22 @@
-// StudentMaterials.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
-
+namespace consumables {
+	const double PEN_PRICE = 5.80;
+	const double MARKER_PRICE = 7.20;
+	const double COMPOUND_PER_LITER = 1.20;
+}
+using std::cin;
+using std::cout;
+using namespace consumables;
 int main()
 {
-    std::cout << "Hello World!\n";
+	int penCount;
+	int markerCount;
+	int compoundLiters;
+	double discount;
+	cin >> penCount >> markerCount >> compoundLiters >> discount;
+
+	double totalPriceBeforeDiscount = penCount * PEN_PRICE + markerCount * MARKER_PRICE + compoundLiters * COMPOUND_PER_LITER;
+	double totalPriceAfterDiscount = totalPriceBeforeDiscount - (totalPriceBeforeDiscount * (discount / 100));
+	
+	cout << totalPriceAfterDiscount;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
