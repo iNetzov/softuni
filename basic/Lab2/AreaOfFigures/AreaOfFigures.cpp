@@ -1,20 +1,39 @@
-// AreaOfFigures.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
+#define _USE_MATH_DEFINES
 #include <iostream>
-
+#include <cmath>
+#include <iomanip>
+using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
+	string inputFigure;
+	cin >> inputFigure;
+	double area;
+	if (inputFigure.compare("square") == 0)
+	{
+		double a;
+		cin >> a;
+		area = a * a;
+	}
+	else if (inputFigure.compare("rectangle") == 0)
+	{
+		double a;
+		double b;
+		cin >> a >> b;
+		area = a * b;
+	}
+	else if (inputFigure.compare("circle") == 0)
+	{
+		double a;
+		cin >> a;
+		area = M_PI * (a * a);
+	}
+	else if (inputFigure.compare("triangle") == 0)
+	{
+		double a;
+		double b;
+		cin >> a >> b;
+		area = b / 2 * a;
+	}
+	cout.setf(ios::fixed);
+	cout << setprecision(3) << area;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
