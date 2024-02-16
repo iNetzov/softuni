@@ -1,20 +1,53 @@
-// Graduation.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <string>
+#include <iomanip>
 
-int main()
-{
-    std::cout << "Hello World!\n";
+double calculateAverageGrade(double grades[], int size) {
+    double total = 0.0;
+    for (int i = 0; i < size; ++i) {
+        total += grades[i];
+    }
+    return total / size;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+int main() {
+    std::string name;
+    std::cout << "Enter student's name: ";
+    std::cin >> name;
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+    const int MAX_GRADES = 12;
+    double grades[MAX_GRADES];
+    double grade;
+    int numGrades = 0;
+    int exclusions = 0;
+
+    while (numGrades < MAX_GRADES) {
+        std::cout << "Enter grade for " << name << " (or -1 to stop): ";
+        std::cin >> grade;
+
+        if (grade == -1) {
+            break;
+        }
+
+        grades[numGrades] = grade;
+        numGrades++;
+
+        if (grade < 4.0) {
+            exclusions++;
+            std::cout << name << " has been excluded at grade " << numGrades << std::endl;
+            if (exclusions >= 2) {
+                break;
+            }
+        }
+        else if (numGrades == MAX_GRADES) {
+            double average = calculateAverageGrade(grades, numGrades);
+            std::cout << name << " graduated. Average grade: " << std::fixed << std::setprecision(2) << average << std::endl;
+        }
+    }
+
+    if (exclusions < 2 && numGrades < MAX_GRADES) {
+        std::cout << name << " has been excluded at grade " << numGrades << std::endl;
+    }
+
+    return 0;
+}
