@@ -1,20 +1,53 @@
-// Task4.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <iomanip>
 
+namespace constants {
+	const double  RATING_2 = 0;
+	const double  RATING_3 = 50;
+	const double  RATING_4 = 70;
+	const double  RATING_5 = 85;
+	const double  RATING_6 = 100;
+}
+using namespace constants;
+using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
+	int counter;
+
+	cin >> counter;
+	double totalSales = 0;
+	double avgRating = 0;
+	
+	for (int i = 0; i < counter; i++)
+	{
+		int input;
+		cin >> input;
+		int rating = input % 10;
+		int sales = input / 10;
+		double actualSales = 0;
+		
+		if (rating == 2) 
+		{
+		actualSales = sales * (RATING_2 / 100);
+		}
+		else if (rating == 3) {
+			actualSales = sales * (RATING_3 / 100);
+		}
+		else if (rating == 4) {
+			actualSales = sales * (RATING_4 / 100);
+		}
+		else if (rating == 5) {
+			actualSales = sales * (RATING_5 / 100);
+		}
+		else if (rating == 6) {
+			actualSales = sales * (RATING_6 / 100);
+		}
+		totalSales += actualSales;
+		avgRating += rating;
+	}
+	avgRating = avgRating / counter;
+
+	cout.setf(ios::fixed);
+	cout << setprecision(2) << totalSales << endl << setprecision(2) << avgRating;
+
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file

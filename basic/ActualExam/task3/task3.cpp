@@ -1,20 +1,76 @@
-// task3.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <string>
+#include <iomanip>
 
-int main()
-{
-    std::cout << "Hello World!\n";
+using namespace std;
+
+namespace pricesForSeasons{
+	const double SUMMER_DISCOUNT = 15;
+	const double WINTER_BONUS = 8;
+
+	const double  SPRING_UNDER_FIVE_PEOPLE = 50;
+	const double  SPRING_ABOVE_FIVE_PEOPLE = 48;
+	
+	
+	const double  SUMMER_UNDER_FIVE_PEOPLE = 48.50;
+	const double  SUMMER_ABOVE_FIVE_PEOPLE = 45;
+
+
+	const double  AUTUMN_UNDER_FIVE_PEOPLE = 60;
+	const double  AUTUMN_ABOVE_FIVE_PEOPLE = 49.5;
+	
+
+	const double  WINTER_UNDER_FIVE_PEOPLE = 86;
+	const double  WINTER_ABOVE_FIVE_PEOPLE = 85;
+
+
 }
+using namespace pricesForSeasons;
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+int main() 
+{
+	int peopleCount;
+	string season;
+	cin >> peopleCount;
+	cin >> season;
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+	double totalPrice = 0;
+	
+	if (season.compare("spring") == 0) {
+		if (peopleCount <= 5) {
+			totalPrice = peopleCount * SPRING_UNDER_FIVE_PEOPLE;
+		}
+		else {
+			totalPrice = peopleCount * SPRING_ABOVE_FIVE_PEOPLE;
+		}
+	}
+	else if (season.compare("summer") == 0) {
+		if (peopleCount <= 5) {
+			totalPrice = peopleCount * SUMMER_UNDER_FIVE_PEOPLE;
+		}
+		else {
+			totalPrice = peopleCount * SUMMER_ABOVE_FIVE_PEOPLE;
+		}
+		totalPrice = totalPrice - (totalPrice * (SUMMER_DISCOUNT / 100));
+
+	}
+	else if (season.compare("autumn") == 0) {
+		if (peopleCount <= 5) {
+			totalPrice = peopleCount * AUTUMN_UNDER_FIVE_PEOPLE;
+		}
+		else {
+			totalPrice = peopleCount * AUTUMN_ABOVE_FIVE_PEOPLE;
+		}
+	}
+	else if (season.compare("winter") == 0) {
+		if (peopleCount <= 5) {
+			totalPrice = peopleCount * WINTER_UNDER_FIVE_PEOPLE;
+		}
+		else {
+			totalPrice = peopleCount * WINTER_ABOVE_FIVE_PEOPLE;
+		}
+		totalPrice = totalPrice + (totalPrice * (WINTER_BONUS / 100));
+	}
+	cout.setf(ios::fixed);
+	cout << setprecision(2) << totalPrice << " leva.";
+}

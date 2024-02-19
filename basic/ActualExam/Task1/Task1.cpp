@@ -1,20 +1,28 @@
-// Task1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <cmath>
+#include <iomanip>
+using std::cin;
+using std::cout;
+
+namespace constants {
+	const double PAPER_PRICE = 5.80;
+	const double LETHER_PRICE = 7.20;
+	const double GLUE_PRICE = 1.20;
+}
+using namespace constants;
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	int presentPaperCount;
+	int presentLetherCount;
+	double glueCount;
+	double discout;
+	cin >> presentPaperCount >> presentLetherCount >> glueCount >> discout;
+	
+	double totalPrice = presentPaperCount * PAPER_PRICE + presentLetherCount * LETHER_PRICE + glueCount * GLUE_PRICE;
+	totalPrice = totalPrice - (totalPrice * (discout / 100));
+	
+	cout.setf(ios::fixed);
+	cout << setprecision(3) << totalPrice;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
