@@ -26,9 +26,9 @@ jobs:
       run: npm run test:unit
     - name: softuni display username
       run: echo 'ivailo netzov'
-       
+
     
-  run-ui-tests
+  run-ui-tests:
     needs: build-and-unit-test
     runs-on: ubuntu-latest
 
