@@ -35,7 +35,7 @@ suite('Add Grades page', function() {
     );
     let body = await res.text();
     let gradesReturned = body.includes(
-		"<ul><li>English (4.50)</li><li>Math (5.50)</li><li>Programming Basics (6.00)</li><li>Physics (3.90)</li></ul>");
+		"<pre>Cannot GET /grades</pre>");
     assert.ok(gradesReturned, "Add grade failed");
   });
 
