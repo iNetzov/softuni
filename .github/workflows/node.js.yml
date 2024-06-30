@@ -26,12 +26,12 @@ jobs:
       run: npm run test:unit
     - name: Softuni username
       run: echo 'ivailonetzov'
-
-      run-ui-tests:
-    needs: build-and-unit-test
-    runs-on: ubuntu-latest
+    
 
   execute UI testing:
+  needs: build-and-test
+    runs-on: ubuntu-latest
+    
     steps:
     - name: Checkout the code
       uses: actions/checkout@v4
