@@ -28,7 +28,7 @@ jobs:
       run: echo 'ivailonetzov'
     
 
-  execute UI testing:
+  execute-ui-testing:
     needs: build-and-test
     runs-on: ubuntu-latest
 
