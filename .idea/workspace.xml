@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e2b21fd-f0c4-4ca3-bad8-0495d678fd98" name="Changes" comment="adding new structure" />
+    <list default="true" id="1e2b21fd-f0c4-4ca3-bad8-0495d678fd98" name="Changes" comment="adding workspace" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,7 +61,7 @@
     "nodejs_package_manager_path": "npm",
     "npm.dev (1).executor": "Run",
     "npm.dev.executor": "Run",
-    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.selected.configurable": "coverage",
     "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
   }
@@ -143,7 +143,7 @@
       <updated>1740907862105</updated>
       <workItem from="1740907863372" duration="1188000" />
       <workItem from="1740909055461" duration="657000" />
-      <workItem from="1740909886003" duration="13895000" />
+      <workItem from="1740909886003" duration="14379000" />
     </task>
     <task id="LOCAL-00001" summary="initial gitignor commit">
       <option name="closed" value="true" />
@@ -201,7 +201,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740935472965</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="adding workspace">
+      <option name="closed" value="true" />
+      <created>1740935986854</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1740935986854</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,7 +234,8 @@
     <MESSAGE value="adding 1st react commits" />
     <MESSAGE value="remove old exercise" />
     <MESSAGE value="adding new structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding new structure" />
+    <MESSAGE value="adding workspace" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding workspace" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
