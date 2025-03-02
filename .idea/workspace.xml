@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e2b21fd-f0c4-4ca3-bad8-0495d678fd98" name="Changes" comment="initial ignore modules">
-      <change afterPath="$PROJECT_DIR$/jsxDemo/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jsxDemo/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jsxDemo/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jsxDemo/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+    <list default="true" id="1e2b21fd-f0c4-4ca3-bad8-0495d678fd98" name="Changes" comment="intial commit for 1st vite application">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactViteDemo/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/reactViteDemo/src/main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactViteDemo/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/reactViteDemo/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +49,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
-    "JavaScript Debug.index.html (1).executor": "Debug",
+    "JavaScript Debug.index.html (1).executor": "Run",
     "JavaScript Debug.index.html.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -63,6 +61,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "npm.dev.executor": "Run",
     "settings.editor.selected.configurable": "liveEdit",
     "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
@@ -74,15 +73,26 @@
       <recent name="$PROJECT_DIR$/jsxDemo/src" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.index.html (1)">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/ReactJS/jsxDemo/index.html">
       <method v="2" />
     </configuration>
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ReactJS/jsxDemo/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/reactViteDemo/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.dev" />
         <item itemvalue="JavaScript Debug.index.html (1)" />
         <item itemvalue="JavaScript Debug.index.html" />
       </list>
@@ -105,7 +115,7 @@
       <updated>1740907862105</updated>
       <workItem from="1740907863372" duration="1188000" />
       <workItem from="1740909055461" duration="657000" />
-      <workItem from="1740909886003" duration="7272000" />
+      <workItem from="1740909886003" duration="8184000" />
     </task>
     <task id="LOCAL-00001" summary="initial gitignor commit">
       <option name="closed" value="true" />
@@ -123,7 +133,23 @@
       <option name="project" value="LOCAL" />
       <updated>1740919614315</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="initial ignore ide files">
+      <option name="closed" value="true" />
+      <created>1740920043872</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1740920043872</updated>
+    </task>
+    <task id="LOCAL-00004" summary="intial commit for 1st vite application">
+      <option name="closed" value="true" />
+      <created>1740920129282</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1740920129282</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,6 +169,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial gitignor commit" />
     <MESSAGE value="initial ignore modules" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial ignore modules" />
+    <MESSAGE value="initial ignore ide files" />
+    <MESSAGE value="intial commit for 1st vite application" />
+    <option name="LAST_COMMIT_MESSAGE" value="intial commit for 1st vite application" />
   </component>
 </project>
