@@ -4,10 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e2b21fd-f0c4-4ca3-bad8-0495d678fd98" name="Changes" comment="intial commit for 1st vite application">
+    <list default="true" id="1e2b21fd-f0c4-4ca3-bad8-0495d678fd98" name="Changes" comment="adding 1st react commits">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactViteDemo/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/reactViteDemo/src/main.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactViteDemo/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/reactViteDemo/vite.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactViteDemo/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactViteDemo/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactViteDemo/eslint.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactViteDemo/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactViteDemo/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactViteDemo/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactViteDemo/public/vite.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactViteDemo/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactViteDemo/src/App.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactViteDemo/src/assets/react.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactViteDemo/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactViteDemo/src/main.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactViteDemo/vite.config.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,8 +60,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
-    "JavaScript Debug.index.html (1).executor": "Run",
+    "JavaScript Debug.index.html (1).executor": "Debug",
     "JavaScript Debug.index.html.executor": "Run",
+    "JavaScript Debug.localhost:3000.executor": "Debug",
+    "Node.js.main.jsx.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "full.screen.before.presentation.mode": "false",
@@ -62,26 +75,39 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "npm.dev.executor": "Run",
-    "settings.editor.selected.configurable": "liveEdit",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lecture1" />
       <recent name="$PROJECT_DIR$/jsxDemo" />
       <recent name="$PROJECT_DIR$/jsxDemo/src" />
     </key>
   </component>
   <component name="RunManager" selected="npm.dev">
+    <configuration name="index.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ReactJS/reactViteDemo/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/ReactJS/jsxDemo/index.html">
       <method v="2" />
     </configuration>
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ReactJS/jsxDemo/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
+    <configuration name="localhost:3000" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:3000/">
+      <method v="2" />
+    </configuration>
+    <configuration name="main.jsx" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/lecture1/reactViteDemo/src/main.jsx" working-dir="$PROJECT_DIR$/lecture1/reactViteDemo/src">
+      <EXTENSION ID="com.intellij.lang.javascript.buildTools.npm.rc.StartBrowserRunConfigurationExtension">
+        <browser name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      </EXTENSION>
+      <method v="2" />
+    </configuration>
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/reactViteDemo/package.json" />
+      <package-json value="$PROJECT_DIR$/lecture1/reactViteDemo/package.json" />
       <command value="run" />
       <scripts>
         <script value="dev" />
@@ -90,11 +116,20 @@
       <envs />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.index.html" />
+      <item itemvalue="JavaScript Debug.index.html (1)" />
+      <item itemvalue="JavaScript Debug.localhost:3000" />
+      <item itemvalue="Node.js.main.jsx" />
+      <item itemvalue="npm.dev" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="npm.dev" />
+        <item itemvalue="JavaScript Debug.localhost:3000" />
+        <item itemvalue="Node.js.main.jsx" />
         <item itemvalue="JavaScript Debug.index.html (1)" />
-        <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="JavaScript Debug.index.html (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -115,7 +150,7 @@
       <updated>1740907862105</updated>
       <workItem from="1740907863372" duration="1188000" />
       <workItem from="1740909055461" duration="657000" />
-      <workItem from="1740909886003" duration="8184000" />
+      <workItem from="1740909886003" duration="13540000" />
     </task>
     <task id="LOCAL-00001" summary="initial gitignor commit">
       <option name="closed" value="true" />
@@ -149,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740920129282</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="adding 1st react commits">
+      <option name="closed" value="true" />
+      <created>1740920960652</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1740920960652</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +214,25 @@
     <MESSAGE value="initial ignore modules" />
     <MESSAGE value="initial ignore ide files" />
     <MESSAGE value="intial commit for 1st vite application" />
-    <option name="LAST_COMMIT_MESSAGE" value="intial commit for 1st vite application" />
+    <MESSAGE value="adding 1st react commits" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding 1st react commits" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="javascript">
+          <url>file://$PROJECT_DIR$/lecture1/reactViteDemo/src/Header.jsx</url>
+          <line>1</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/lecture1/reactViteDemo/src/main.jsx</url>
+          <line>8</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
