@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e2b21fd-f0c4-4ca3-bad8-0495d678fd98" name="Changes" comment="adding workspace">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="1e2b21fd-f0c4-4ca3-bad8-0495d678fd98" name="Changes" comment="movie-list initial commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -149,7 +148,7 @@
       <workItem from="1740909055461" duration="657000" />
       <workItem from="1740909886003" duration="14645000" />
       <workItem from="1741016683096" duration="3000" />
-      <workItem from="1741021971826" duration="328000" />
+      <workItem from="1741021971826" duration="1246000" />
     </task>
     <task id="LOCAL-00001" summary="initial gitignor commit">
       <option name="closed" value="true" />
@@ -223,7 +222,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740936242886</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="movie-list initial commit">
+      <option name="closed" value="true" />
+      <created>1741022533234</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1741022533234</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,7 +256,8 @@
     <MESSAGE value="remove old exercise" />
     <MESSAGE value="adding new structure" />
     <MESSAGE value="adding workspace" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding workspace" />
+    <MESSAGE value="movie-list initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="movie-list initial commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
