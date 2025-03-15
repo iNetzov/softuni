@@ -1,9 +1,9 @@
 import './App.css'
-
+import Head from './componets/Header'
 function App() {
   return (
     <>
-      <h1>test</h1>
+      <Head title='Hello From PROPS' ivailo='123213'/>
     </>
   )
 }
