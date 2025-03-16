@@ -2,6 +2,7 @@ import './App.css'
 import BasicTimer from './components/BasicTimer'
 import BasicTimerWithReactHook from './components/BasicTimerWithReactHook'
 import Counter from './components/Counter'
+import KillCounter from './components/KillCounter'
 
 function App() {
   
@@ -15,6 +16,7 @@ function App() {
     <BasicTimerWithReactHook/>
     <h1>Counter</h1>
     <Counter/>
+    <KillCounter/>
     
     </div>
     </>
