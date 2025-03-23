@@ -3,16 +3,25 @@ import Pagination from "./Pagination";
 import SearchFormComponent from "./SearchFormComponent";
 import UserServices from "../services/UserServices";
 import UserListItem from "./UserListItem";
+import AddingUserComponent from "./AddingUserComponent";
 
 export default function UserListComponent() {
     const [users, setUsers] = useState([]);
+    const [showCreate, setShowCreate] =  useState(false);
 
     useEffect(() => {
         UserServices.getAll()
             .then(result => {
                 setUsers(result);
             });
-    }, [])
+    }, []);
+
+    const addUserClickHandler = () => {
+        console.log('ho');
+        setShowCreate(true);
+    }
+
+
     return (
         <>
             <section className="card users-container">
@@ -158,7 +167,9 @@ export default function UserListComponent() {
                 </div>
 
                 {/* <!-- New user button  --> */}
-                <button className="btn-add btn">Add new user</button>
+                <button  onClick={addUserClickHandler} className="btn-add btn">Add new user</button>
+                    {showCreate && <AddingUserComponent/>}
+        
 
 
 
