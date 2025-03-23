@@ -1,8 +1,12 @@
+import { useEffect } from "react";
 import Pagination from "./Pagination";
 import SearchFormComponent from "./SearchFormComponent";
+import UserServices from "../services/UserServices";
 
 export default function UserListComponent() {
-    
+    useEffect(() => {
+        UserServices.getAll().then(result => {console.log(result)});
+    }, [])
     return (
         <>
             <section className="card users-container">
@@ -190,7 +194,7 @@ export default function UserListComponent() {
                 <button className="btn-add btn">Add new user</button>
 
 
-                
+
 
                 {/* <!-- Pagination component  --> */}
                 <Pagination />
