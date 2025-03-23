@@ -16,10 +16,13 @@ export default function UserListComponent() {
             });
     }, []);
 
-    const addUserClickHandler = () => {
+    const createUserClickHandler = () => {
         console.log('ho');
         setShowCreate(true);
-    }
+    };
+    const closeAddUserClickHandler = () => {
+        setShowCreate(false);
+    } 
 
 
     return (
@@ -167,8 +170,10 @@ export default function UserListComponent() {
                 </div>
 
                 {/* <!-- New user button  --> */}
-                <button  onClick={addUserClickHandler} className="btn-add btn">Add new user</button>
-                    {showCreate && <AddingUserComponent/>}
+                <button  onClick={createUserClickHandler} className="btn-add btn">Add new user</button>
+                    {showCreate && <AddingUserComponent onClose = {closeAddUserClickHandler}/>}
+                    
+                    
         
 
 
