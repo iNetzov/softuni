@@ -7,7 +7,7 @@ import AddingUserComponent from "./AddingUserComponent";
 
 export default function UserListComponent() {
     const [users, setUsers] = useState([]);
-    const [showCreate, setShowCreate] =  useState(false);
+    const [showCreate, setShowCreate] = useState(false);
 
     useEffect(() => {
         UserServices.getAll()
@@ -17,12 +17,19 @@ export default function UserListComponent() {
     }, []);
 
     const createUserClickHandler = () => {
-        console.log('ho');
         setShowCreate(true);
     };
     const closeAddUserClickHandler = () => {
         setShowCreate(false);
-    } 
+    }
+    const saveCreateUserClickHandler = (e) => {
+        //Stop default refresh
+        e.preventDefault();
+        //get form Data!
+        const formValues  = Object.fromEntries(new FormData(e.target));
+        
+        console.log(formValues);
+    }
 
 
     return (
@@ -170,11 +177,16 @@ export default function UserListComponent() {
                 </div>
 
                 {/* <!-- New user button  --> */}
-                <button  onClick={createUserClickHandler} className="btn-add btn">Add new user</button>
-                    {showCreate && <AddingUserComponent onClose = {closeAddUserClickHandler}/>}
-                    
-                    
-        
+                <button onClick={createUserClickHandler} className="btn-add btn">Add new user</button>
+                {showCreate && (
+                    <AddingUserComponent
+                        onClose={closeAddUserClickHandler}
+                        onSave={saveCreateUserClickHandler}
+                    />)
+                }
+
+
+
 
 
 
