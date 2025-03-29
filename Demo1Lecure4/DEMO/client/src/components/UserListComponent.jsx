@@ -22,12 +22,17 @@ export default function UserListComponent() {
     const closeAddUserClickHandler = () => {
         setShowCreate(false);
     }
-    const saveCreateUserClickHandler = (e) => {
+    const saveCreateUserClickHandler = async (e) => {
         //Stop default refresh
         e.preventDefault();
         //get form Data!
         const formValues  = Object.fromEntries(new FormData(e.target));
-        
+        //post to server
+        const newUser =  await UserServices.createUser(formValues);
+        //update local server
+        setUsers(state => [...state, newUser])
+        //finally close
+        closeAddUserClickHandler()
         console.log(formValues);
     }
 
