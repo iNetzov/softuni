@@ -1,8 +1,8 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import UserServices from "../services/UserServices";
 
 export default function UserInfoModalComponent({
-    userId,onClose
+    userId, onClose
 }) {
     const [user, setUser] = useState({});
     useEffect(() => {
@@ -46,7 +46,7 @@ export default function UserInfoModalComponent({
                                 <p>Phone Number: <strong>{user.phoneNumber}</strong></p>
                                 <p>
                                     Address:
-                                    <strong>  </strong>
+                                    <strong> {user.address?.country} {user.address?.city} {user.address?.street}  {user.address?.streetNumber}  </strong>
                                 </p>
 
                                 <p>Created on: <strong>{user.createdAt}</strong></p>
