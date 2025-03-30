@@ -24,6 +24,12 @@ export default {
         });
         const result = await response.json();
         return result;
+    },
+    async getGivenUser(userId) {
+        const response = await fetch(`${BASE_URL}/${userId}`);
+        const user = await response.json();
+        return user;
+
     }
 
 

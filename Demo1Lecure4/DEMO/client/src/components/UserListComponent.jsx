@@ -1,13 +1,16 @@
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Pagination from "./Pagination";
 import SearchFormComponent from "./SearchFormComponent";
 import UserServices from "../services/UserServices";
 import UserListItem from "./UserListItem";
 import AddingUserComponent from "./AddingUserComponent";
+import UserInfoModalComponent from "./UserInfoModalComponent"
 
 export default function UserListComponent() {
     const [users, setUsers] = useState([]);
     const [showCreate, setShowCreate] = useState(false);
+    const [userIdInfo,setUserIdInfo] = useState(null); 
+    
 
     useEffect(() => {
         UserServices.getAll()
@@ -35,10 +38,32 @@ export default function UserListComponent() {
         closeAddUserClickHandler()
         console.log(formValues);
     }
+const userInfoClickHandler = (userId) => {
+   
+    console.log('info clicked ',userId);
+    setUserIdInfo(userId)
 
+}
+
+const userInfoCloseBtnClickHandler = () => {
+   
+    console.log('info modal close Btn clicked ');
+    setUserIdInfo(null)
+
+}
 
     return (
         <>
+
+        {userIdInfo && (
+            <UserInfoModalComponent
+            userId={userIdInfo}
+            onClose = {userInfoCloseBtnClickHandler}
+            />
+            )}
+
+
+
             <section className="card users-container">
                 {/* <!-- Search bar component --> */}
                 <SearchFormComponent />
@@ -176,7 +201,7 @@ export default function UserListComponent() {
                         </thead>
                         <tbody>
                             {/* <!-- Table row component --> */}
-                            {users.map(user => <UserListItem key={user._id} {...user} />)}
+                            {users.map(user => <UserListItem key={user._id} {...user} onInfoClick={userInfoClickHandler} onClose= {userInfoCloseBtnClickHandler} />)}
                         </tbody>
                     </table>
                 </div>
