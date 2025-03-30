@@ -5,12 +5,15 @@ import UserServices from "../services/UserServices";
 import UserListItem from "./UserListItem";
 import AddingUserComponent from "./AddingUserComponent";
 import UserInfoModalComponent from "./UserInfoModalComponent"
+import DeleteUserComponent from "./DeleteUserComponent";
 
 export default function UserListComponent() {
     const [users, setUsers] = useState([]);
     const [showCreate, setShowCreate] = useState(false);
-    const [userIdInfo,setUserIdInfo] = useState(null); 
-    
+    const [userIdInfo, setUserIdInfo] = useState(null);
+    const [showDelete, setShowDelete] = useState(false)
+    const [userToBeDeleted, setUserToBeDeleted] = useState(null)
+
 
     useEffect(() => {
         UserServices.getAll()
@@ -29,37 +32,60 @@ export default function UserListComponent() {
         //Stop default refresh
         e.preventDefault();
         //get form Data!
-        const formValues  = Object.fromEntries(new FormData(e.target));
+        const formValues = Object.fromEntries(new FormData(e.target));
         //post to server
-        const newUser =  await UserServices.createUser(formValues);
+        const newUser = await UserServices.createUser(formValues);
         //update local server
         setUsers(state => [...state, newUser])
         //finally close
         closeAddUserClickHandler()
         console.log(formValues);
     }
-const userInfoClickHandler = (userId) => {
-   
-    console.log('info clicked ',userId);
-    setUserIdInfo(userId)
+    const userInfoClickHandler = (userId) => {
 
-}
+        console.log('info clicked ', userId);
+        setUserIdInfo(userId)
+    }
 
-const userInfoCloseBtnClickHandler = () => {
-   
-    console.log('info modal close Btn clicked ');
-    setUserIdInfo(null)
+    const userInfoCloseBtnClickHandler = () => {
 
-}
+        console.log('info modal close Btn clicked ');
+        setUserIdInfo(null)
+
+    }
+    const userDeleteBtnClickHandler = (id) => {
+        console.log('Delete Btn Clicked', id);
+        setShowDelete(true)
+        setUserToBeDeleted(id);
+    }
+    const closeUserDeleteModalHandler = () => {
+        console.log('Close modal Delete')
+        setShowDelete(false);
+        setUserToBeDeleted(null)
+    }
+    const deleteUserById = () => {
+        console.log('delete start');
+        UserServices.deleteUserById(userToBeDeleted)
+        console.log('delete finish!');
+    //delete from server
+    setUsers(state => state.fillter(user => user._id !== userToBeDeleted));
+    //delete from local
+    //close modal
+    }
 
     return (
         <>
+            {showDelete &&
+                <DeleteUserComponent
+                    onDelete={deleteUserById(userToBeDeleted)}
+                    onClose={closeUserDeleteModalHandler}
+                />}
 
-        {userIdInfo && (
-            <UserInfoModalComponent
-            userId={userIdInfo}
-            onClose = {userInfoCloseBtnClickHandler}
-            />
+            {userIdInfo && (
+                <UserInfoModalComponent
+                    userId={userIdInfo}
+                    onClose={userInfoCloseBtnClickHandler}
+                />
             )}
 
 
@@ -201,7 +227,13 @@ const userInfoCloseBtnClickHandler = () => {
                         </thead>
                         <tbody>
                             {/* <!-- Table row component --> */}
-                            {users.map(user => <UserListItem key={user._id} {...user} onInfoClick={userInfoClickHandler} onClose= {userInfoCloseBtnClickHandler} />)}
+                            {users.map(user => <UserListItem
+                                key={user._id}
+                                {...user}
+                                onInfoClick={userInfoClickHandler}
+                                onClose={userInfoCloseBtnClickHandler}
+                                onDeleteClick={userDeleteBtnClickHandler}
+                            />)}
                         </tbody>
                     </table>
                 </div>
