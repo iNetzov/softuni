@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>hash based router</h1>
+    <h2>home</h2>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere minima velit excepturi doloremque! Rerum debitis
+        cum eveniet magnam temporibus officia!</p>
+        <nav>
+        <a href="#products">products</a>
+        <a href="#prising">prising</a>
+        <a href="#about-Us">about-us</a>
+        </nav>
+        <div class="root"></div>
+   <script>
+       const routs={
+           '#home':`<div><h2>Home page</h2><p>HomePage</p></div>`,
+           '#products': `<div><h2>Products page</h2><p>some products here</p></div>`,
+           '#prising': `<div><h2>Prising page</h2><p>some price here</p></div>`,
+           '#about-Us': `<div><h2> about us  page</h2><p>some about us here</p></div>`
+
+       }
+
+       window.addEventListener('hashchange',(e)=>{
+           router(location.hash)
+       })
+
+       function router(hash){
+           let rootEl = document.querySelector(`.root`);
+           rootEl.innerHTML = routs[hash];
+
+       }
+       router(location.hash || '#home');
+    </script>
+</body>
+
+</html>
