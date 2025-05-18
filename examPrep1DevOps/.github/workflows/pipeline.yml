@@ -1,0 +1,61 @@
+name: build and test and deploy
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-unit-test:
+
+    runs-on: ubuntu-latest
+    
+
+    steps:
+    - name: Checkout the code
+      uses: actions/checkout@v4
+    - name: Use Node.js 20x
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20.x
+        cache: 'npm'
+    - name: Install npm dependencies
+      run: npm install
+    - name: Execute the unit tests
+      run: npm run test:unit
+    - name: softuni display username
+      run: echo 'ivailo netzov'
+
+    
+  run-ui-tests:
+    needs: build-and-unit-test
+    runs-on: ubuntu-latest
+
+  
+    steps:
+    - name: Checkout the code
+      uses: actions/checkout@v4
+    - name: Use Node.js 20x
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20.x
+        cache: 'npm'
+    - name: Install npm dependencies
+      run: npm install
+    - name: Install playwright
+      run: npx playwright install
+    - name: Start Application
+      run: npm run start &   
+    - name: Execute the UI tests
+      run: npm run test:ui
+
+  deploy:
+    needs: run-ui-tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to production
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
+          api-key: ${{ secrets.MY_RENDER_API_KEY }}
