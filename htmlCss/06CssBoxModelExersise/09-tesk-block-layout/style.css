@@ -1,0 +1,34 @@
+*{
+  box-sizing: border-box;  
+}
+
+
+.container {
+    border: 3px solid red;
+    padding: 5px;
+    font-size: 0px;
+    height: 200px;
+}
+
+.container > *{
+    font-size: 16px;
+}
+
+.text {
+    display:inline-block;
+    padding: 5px;
+    background-color: gray;
+    border-radius: 6px;
+
+}
+
+.first{
+    width: 80%;
+    height: 300px;
+
+}
+.second {
+    margin-left: 2%;
+    width: 18%;
+    vertical-align: top;
+}

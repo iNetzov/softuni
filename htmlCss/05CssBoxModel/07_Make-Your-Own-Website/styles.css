@@ -1,0 +1,30 @@
+main{
+    margin: 0px;
+}
+
+div {
+    display: inline-block;
+}
+div {
+    background-color: blue;
+    padding: 30px;
+    border-radius: 16px;
+    /* margin-right: 1px ;s */
+}
+div:hover {
+    background-color: aliceblue;
+}
+h3{
+    display: block;
+    margin: 0px 0px 35px 0px;
+}
+
+p{
+  margin: 0px;  
+}
+
+
+.left, .center, .right {
+    width: 250px;
+    height: 100px;
+}

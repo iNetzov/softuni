@@ -1,0 +1,17 @@
+article{
+    background-color: blue;
+    border-radius: 16px;
+    padding: 36px;
+    margin: 54px;
+    color: white;
+    font-family: Helvetica, sans-serif;
+    line-height: 1.5rem;
+}
+h1{
+    text-indent: 40px;
+    font-family: Georgia,serif;
+}
+p{
+    text-indent: 40px;
+
+}

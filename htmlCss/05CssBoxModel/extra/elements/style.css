@@ -1,0 +1,24 @@
+h2{
+    background-color: pink;
+}
+.block {
+    background-color: orange;
+
+}
+.inline{
+    background-color: blue;
+}
+.text{
+    background-color: yellow;
+}
+input {
+    background-color: green;
+}
+label {
+    background-color: grey;
+}
+
+.inline-block label {
+    display: inline-block;
+    background-color: red;
+}

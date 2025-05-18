@@ -1,0 +1,170 @@
+html {
+    font-family: 'Poppins', sans-serif;
+}
+.container{
+    width: 1920;
+    height: 1080;
+}
+.header-container {
+    background-color: aqua;
+    width: 100%;
+    height: 800px;
+    /* height: 500px; */
+    /* background-image: url(./images/Cluj-Napoca.jpg); */
+    /* height: 500px; */
+    background-image: url("../03/images/landing-photo.jpg");
+    object-fit:scale-down;
+    background-size: cover;
+}
+.header-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.navigation-bar {
+    /* max-height: 250px; */
+    margin-top: 20px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-left: 150px; */
+    width: 80%;
+    z-index: 100;
+}
+.navigation {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 40px;
+}
+
+.navigation-bar .title {
+    width: 15%;
+    margin-left: 80px;
+    
+    font-size: 32px;
+}
+.navigation-bar .navigation {
+    width: 60%;
+    
+}
+
+.navigation-bar .navigation li{
+    padding: 10px 25px;
+    font-size: 20px;
+    
+}
+
+.navigation-bar .navigation li:last-child{
+    background-color: #370511;
+    color: white;
+    border-radius: 25px;
+}
+.entering-container {
+    width: 100%;
+    height: 800px;
+    margin-top: 300px;
+    margin-left: 300px;
+}
+.title-text {
+    font-size: 36px;
+}
+.little-title {
+    font-size: 20px;
+    margin-bottom: 60px;
+}
+.entering-container button {
+    all:unset;
+    margin-top: 30px;
+    background-color: #370511;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 35px;
+
+}
+.introduction {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.introduction h1 {
+    font-size: 36px;
+}
+.introduction p {
+    margin-top: 5px;
+    font-size: 18px;
+}
+/* Article */
+
+.place-img{
+    width: 450px;
+    height: 350px;
+}
+
+.article-container{
+    display: flex;
+    /* width: 80%; */
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left:103px ;
+    gap: 90px;
+}
+.article {
+    width: 30%;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 450px;
+}
+.article h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+button.discover{
+    width: 300px;
+    all: unset;
+    text-align: center;
+    padding: 10px 5px;
+    border-radius: 25px;
+    border: 1px solid black;
+}
+.img-container {
+    overflow: hidden;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+}
+
+footer{
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 250px;
+}
+footer h1 {
+    width: 10%;
+}
+footer h1 {
+    width: 20%;
+}
+
+.info-links{
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+}
+.container-icon i {
+    font-size: 25px;
+    margin-right: 5px;
+}
+.city {
+    margin-top:20px ;
+}
+
+

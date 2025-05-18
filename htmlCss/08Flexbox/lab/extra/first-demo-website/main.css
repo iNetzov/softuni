@@ -1,0 +1,39 @@
+body {
+    background-color: lightblue;
+    
+}
+
+div.navigation img{
+    display: inline-block;
+    margin-right: 60px;
+}
+div.img{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    object-fit:contain;
+    border-radius: 50%;
+    overflow: hidden;
+    
+}
+div.navigation nav{
+    display: inline-block;
+    padding-bottom: 30px;
+    margin-right: 300px;
+}
+nav a {
+    padding-right: 20px;
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+}
+
+i {
+    color: white;
+    padding: 30px;
+}
+
+
+div.navigation{
+    background-color:blue;
+}

@@ -1,0 +1,28 @@
+main{
+    border: 1px solid black;
+    margin: 10px;
+    background-color: pink;
+}
+
+i{
+    font-size: 60px;
+    padding: 25px;
+    border-radius:50px;
+    background-color: grey;
+    margin: 20px;
+}
+i.facebook:hover{
+    color: blue;
+}
+i.twitter:hover{
+    color: lightblue;
+}
+i.instagram:hover{
+    color: violet;
+}
+i.linkedin:hover{
+    color: palegoldenrod;
+}
+i.gmail:hover{
+    color: blueviolet;
+}

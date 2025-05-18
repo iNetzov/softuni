@@ -1,0 +1,46 @@
+/* navigation bar */
+body{
+    background-color: antiquewhite;
+}
+body>header{
+    background-color: #444;
+    border-radius: 20px;
+}
+footer{
+    text-align: center;
+    color: white;
+    line-height: 40px;
+    background-color: #444;
+
+}
+ul{
+    text-align: center;
+    font-size: 20px;
+    list-style: none;
+}
+nav>ul>li{
+    size: 24px;
+    height: 40px;
+    padding: 20px;
+    line-height: 40px;
+    display: inline-block;
+}
+nav>ul>li>a{
+    color: white;
+}
+
+section>article{
+    border: 1px solid black;
+    padding: 20px;
+    margin: 20px;
+}
+section>article>header>h1{
+font-size: 24px;
+}
+section>article>header>p{
+font-size: 18px;
+font-style: italic;
+}
+section>article>main{
+    font-size: 20px;
+}

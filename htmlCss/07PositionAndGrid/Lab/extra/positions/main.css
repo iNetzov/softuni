@@ -1,0 +1,72 @@
+body {
+    padding: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container{
+    width: 80%;
+    padding: 12px;
+    border: 2px dashed black;
+    margin-bottom: 25px;
+} 
+.container img{
+    width: 350px;
+}
+
+/* STATIC */
+.static {
+    background-color: lightblue;
+    
+}
+.static img {
+    /* position: static; */
+    top: 20px
+}
+
+
+/* RELATIVE */
+.relative {
+    background-color: pink;
+}
+.relative img {
+    position: relative;
+    top: 20px;
+    /* left: 100px; */
+    right: 50px;
+}
+
+/* ABSOLUTE */
+.absolute {
+    background-color: greenyellow;
+    position: relative;
+}
+.absolute img {
+    position: absolute;
+    top: 20px;
+    left: 500px;
+}
+
+/* FIXED */
+.fixed {
+    background-color: lightblue;
+}
+.fixed img {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    border-radius: 100%;
+    bottom: 20px;
+    right: 50px;
+}
+
+/* STICKY */
+.sticky {
+    background-color: gray;
+}
+.sticky p {
+    font-size: 45px;
+}
+.sticky img {
+    position: sticky;
+    top: 20px;
+    right: 50px;
+}

@@ -1,0 +1,42 @@
+/* navigation */
+body{
+    background-color: aqua;
+}
+body header *{
+    vertical-align: middle;
+    line-height: 40px;
+}
+
+nav {
+    background-color: aliceblue;
+    vertical-align: middle;
+}
+nav ul{
+    text-align: center;
+    text-decoration: none;
+    display: inline;
+    list-style-type: none;
+}
+nav li {
+    display: inline;
+    padding: 10px;
+}
+nav h1 {
+    display: inline;
+    padding: 15px;
+}
+/* article catalog */
+article{
+    background-color: bisque;
+    display: table-cell;
+    width: 50%;
+    border: 10px solid aqua;
+    padding: 10px 15px;
+}
+footer{
+    margin: 5px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    background-color: antiquewhite;
+    border: 10px solid aqua;
+}

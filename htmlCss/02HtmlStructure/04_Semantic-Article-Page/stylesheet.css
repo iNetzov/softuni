@@ -1,0 +1,19 @@
+body{
+    background-color: blue;
+}
+article{
+    background-color: aquamarine;
+    padding: 5px 15px;
+    border: 1px solid black;
+
+}
+section#comments{
+color: blueviolet;
+}
+
+section#comments article h1{
+    font-size: 24px;
+}
+section#comments article h2{
+    font-size: 20px;
+}

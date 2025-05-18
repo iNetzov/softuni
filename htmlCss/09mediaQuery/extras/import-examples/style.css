@@ -1,0 +1,21 @@
+/* @import '../import-examples/orange.css';
+@import '../import-examples/blue.css'; */
+
+
+/* @import '../import-examples/orange.css' screen and (min-width:600px);
+Dont work not strong engouf need to select on class to override h1 */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aqua;
+}
+
+h1 {
+    color: red;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: normal;
+}
+
+
+    /* @import '../import-examples/blue.css'; */

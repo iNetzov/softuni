@@ -1,0 +1,38 @@
+section{
+    font-family: 'Courier New', Courier, monospace;
+    color: red;
+    background-color: antiquewhite;
+    font-size: 16px;
+    margin: 8px;
+    padding: 20px;
+    width: 200px;
+}
+ul li {
+    text-decoration: none;
+    list-style-type: none;
+    padding: 5px;
+}
+i{
+    padding-right: 1px;
+}
+button{
+    text-align: center;
+    color: white;
+    background-color: grey;
+    border-radius: 2px;
+    line-height: 20px;
+    padding: 5px;
+    font-size: 24px;
+}
+.blue{
+    background-color: blue;
+    border: 1px solid bisque;
+}
+.red{
+    background-color: red;
+    border: 1px solid bisque;
+}
+.green{
+    background-color: green;
+    border: 1px solid bisque;
+}

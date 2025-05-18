@@ -1,0 +1,28 @@
+main#wrapper{
+    background-color: goldenrod;
+    width: 700px;
+    height: 730px;
+    border: 1px solid black;
+    padding: 10px 20px;
+    
+}
+em.em-italic{
+    font-style: italic;
+}
+
+img{
+    width: 200px;
+    margin-right: 10px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+span.text{
+    color: #3f51b5;
+}
+li{
+    width: 595px;
+    padding: 10px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    border: 1px solid black;
+}
