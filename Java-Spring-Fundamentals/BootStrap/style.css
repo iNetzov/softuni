@@ -1,0 +1,15 @@
+.p{
+    color: brown;
+}
+
+.row>div:nth-child(1){
+    background-color: chartreuse;
+}
+
+.row>div:nth-child(2){
+    background-color: purple;
+}
+
+.row>div:nth-child(3){
+    background-color: red;
+}
